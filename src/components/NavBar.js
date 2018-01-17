@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import TopGames from './TopGames';
 import Streams from './Streams';
 
@@ -12,7 +12,7 @@ class NavBar extends Component {
                 <div>
                     <ul>
                         <li><Link to="/top-games">Top Games</Link></li>
-                        <li><Link to ="streams">Streams</Link></li>
+                        <li><Link to ="/streams">Streams</Link></li>
                     </ul>
 
                     <Switch>

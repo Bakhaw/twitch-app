@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import config from '../key';
+
+import { connect } from 'react-redux';
+import { fetchStreams } from '../redux/actions/fetchStreams';
 
 class Streams extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      streams: [],
-      fetched: false
-    };
-  }
 
   async componentWillMount() {
-    const fetch = await axios.get('https://api.twitch.tv/helix/streams?game_id=21779', config);
-    const streams = await fetch.data.data;
-    this.setState({ streams, fetched: true })
+    await this.props.fetchStreams('https://api.twitch.tv/helix/streams?game_id=21779');
   }
 
   render() { 
+
+    const streams = this.props.streams.streams.data;
+
     return (
       <div>
-        
-        {!this.state.fetched &&
+
+        {!this.props.streams.fetched &&
           <p>Chargement ...</p>
         }
 
-        {this.state.fetched &&
-          this.state.streams.map((stream, index) => {
+        {this.props.streams.fetched &&
+          streams.map((stream, index) => {
             return (
               <div key={index}>
                 {console.log(stream)}            
@@ -48,5 +43,18 @@ class Streams extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    streams: state.streamsReducer
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchStreams: (url) => { dispatch(fetchStreams(url)) }
+  }
+}
+
  
-export default Streams;
+export default connect(mapStateToProps, mapDispatchToProps)(Streams);
