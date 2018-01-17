@@ -39,7 +39,6 @@ class Streams extends Component {
                 <p>Type: {stream.type}</p>
                 <img src={stream.thumbnail_url.slice(0, -21)+"-750x500.jpg"} alt=""/>
                 <p>Viewers: {stream.viewer_count}</p>
-                <p>stream.id</p>
               </div>
             )
           })

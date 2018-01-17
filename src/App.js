@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import TopGames from './components/TopGames';
-import Streams from './components/Streams';
+import NavBar from './components/NavBar';
 
 class App extends Component {
 
   render() {
     return (
       <div>
-        {/* <TopGames /> */}
-        <Streams />
+        <NavBar />
       </div>
     );
   }
