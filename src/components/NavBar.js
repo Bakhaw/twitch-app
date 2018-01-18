@@ -4,25 +4,24 @@ import TopGames from './TopGames';
 import Streams from './Streams';
 
 class NavBar extends Component {
-  render () {
+  render() {
     return (
-        <div>
-            <Router>
-                
-                <div>
-                    <ul>
-                        <li><Link to="/top-games">Top Games</Link></li>
-                        <li><Link to ="/streams">Streams</Link></li>
-                    </ul>
+      <div>
+        <Router>
 
-                    <Switch>
-                        <Route path="/top-games" component={TopGames}/>
-                        <Route path="/streams" component={Streams}/>
-                    </Switch>
-                </div>
+          <div>
+            <ul>
+              <li><Link to="/top-games">Top Games</Link></li>
+            </ul>
 
-            </Router>
-        </div>
+            <Switch>
+              <Route path="/top-games" component={TopGames} />
+              <Route path="/streams" component={Streams} />
+            </Switch>
+          </div>
+
+        </Router>
+      </div>
     )
   }
 }

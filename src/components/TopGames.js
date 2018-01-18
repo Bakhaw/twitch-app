@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { fetchGames } from '../redux/actions/fetchGames';
@@ -17,17 +18,18 @@ class TopGames extends Component {
 
     return (
       <div>
-        <h3>Twitch App</h3>
         <h1>TOP GAMES</h1>
         {!topGames.fetched &&
           <p>Chargement ...</p>
         }
         {topGames.fetched &&
-          <div className="games">
+          <div className="gamesContainer">
             {topGames.games.map((game, index) => {
               return (
-                <div key={index} className="game">
-                  <img src={`${game.box_art_url.slice(0, -21)}-300x300.jpg`} alt=""/>
+                <div key={index} className="gameCard">
+                  <Link to={`/streams/${game.id}`}>
+                    <img src={`${game.box_art_url.slice(0, -21)}-300x300.jpg`} alt={`${game.name} cover`}/>
+                  </Link>
                   <p>{game.name}</p>
                   <p>Game ID #{game.id}</p>                  
                 </div>

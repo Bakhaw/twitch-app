@@ -4,18 +4,17 @@ body {
   text-align: center;
 }
 
-.games {
+.gamesContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.game {
+.gameCard {
   width: 15%;
   margin: 20px;
-}
-
-.game img {
-  width: 200px;
-  height: 300px;
+  img {
+    width: 200px;
+    height: 300px;
+  }
 }
