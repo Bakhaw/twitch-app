@@ -2,9 +2,35 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .streamCard {
-  width: 350px;
+  width: 235px;
+  height: 200px;
   margin: 0 10px;
+  font-family: Arial, Helvetica, sans-serif;  
+  text-align: left;
+  a {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: #6441a4;
+    }
+    h3 {
+      margin-top: 0.5rem;
+      line-height: 1.5rem;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      overflow: hidden;    
+      white-space: nowrap;
+    }
+  }
+  p {
+    color: #6e6779;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;    
+    white-space: nowrap;
+  }
 }

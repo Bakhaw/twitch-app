@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import TopGames from './TopGames';
 import Streams from './Streams';
+import './NavBar.scss';
 
 class NavBar extends Component {
   render() {
@@ -9,7 +10,7 @@ class NavBar extends Component {
       <Router>
         <div>
 
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav className="navbar navbar-expand-lg">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
