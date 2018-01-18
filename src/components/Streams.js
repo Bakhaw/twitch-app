@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 
+import CircularProgress from 'material-ui/CircularProgress';
+
 import { connect } from 'react-redux';
-import { fetchGames } from '../redux/actions/fetchGames';
 import { fetchStreams } from '../redux/actions/fetchStreams';
 
 import './Streams.scss';
 
 class Streams extends Component {
 
-  async componentWillMount() {
+  componentWillMount() {
+
     const gameId = this.props.location.pathname.slice(9);
 
-    await this.props.fetchGames();
-    await this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${gameId}&first=100`);
+    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${gameId}&first=100`);
   }
 
   render() {
@@ -23,7 +24,7 @@ class Streams extends Component {
       <div>
 
         {!this.props.streams.fetched &&
-          <p>Chargement ...</p>
+          <CircularProgress />
         }
 
         <div className="streamsContainer">
@@ -36,9 +37,9 @@ class Streams extends Component {
                   <a href={`https://www.twitch.tv/${streamer}`} target="_blank">
                     <img src={streamImage} alt={`${streamer} cover image`} />
                   </a>
-                  <p>{stream.title}</p>
+                  <h4>{stream.title}</h4>
                   <p>{stream.viewer_count} spectateurs sur {streamer}</p>
-
+                  <p>{stream.type.toUpperCase()}</p>
                   {/* <p>Streamer: {streamer}</p>
                   <p>Game ID #{stream.game_id}</p>
                   <p>Stream ID #{stream.id}</p>
@@ -60,14 +61,12 @@ class Streams extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    games: state.gamesReducer,
     streams: state.streamsReducer
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGames: () => { dispatch(fetchGames()) },
     fetchStreams: (url) => { dispatch(fetchStreams(url)) }
   }
 }

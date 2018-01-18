@@ -8,8 +8,8 @@ import './TopGames.scss';
 
 class TopGames extends Component {
 
-  async componentWillMount() {
-    await this.props.fetchGames();
+  componentWillMount() {
+    this.props.fetchGames();
   }
 
   render() {
