@@ -27,7 +27,7 @@ class TopGames extends Component {
             {topGames.games.map((game, index) => {
               return (
                 <div key={index} className="gameCard">
-                  <Link to={`/streams/${game.id}`}>
+                  <Link to={`/streams/${game.id}`} params={{ gameid: game.id }}>
                     <img src={`${game.box_art_url.slice(0, -21)}-300x300.jpg`} alt={`${game.name} cover`}/>
                   </Link>
                   <p>{game.name}</p>

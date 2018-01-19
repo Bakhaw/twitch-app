@@ -10,7 +10,7 @@ class Header extends Component {
   componentWillMount() {
 
     // store the game ID from the url (/streams/gameID) to make dynamic fetching with this ID
-    const gameId = this.props.location.pathname.slice(9);
+    const gameId = this.props.gameId;
     this.props.fetchGames();
   }
 
@@ -23,7 +23,7 @@ class Header extends Component {
         {this.props.games.games.map((game, index) => {
           return (
             <div key={index}>
-              {game.id === this.props.location.pathname.slice(9) &&
+              {game.id === this.props.gameId &&
                 <div style={{
                   background: `url(${game.box_art_url.slice(0, -21)}.jpg) center no-repeat`,
                   backgroundSize: '100%',

@@ -15,9 +15,8 @@ class Streams extends Component {
 
   componentWillMount() {
 
-    // store the game ID from the url (/streams/gameID) to make dynamic fetching with this ID
-    const gameId = this.props.location.pathname.slice(9);
-
+    // store the game ID from the react router params (/streams/gameID) to make dynamic fetching with this ID
+    let gameId = this.props.match.params.gameId;
     this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${gameId}&first=100`);
     this.props.fetchGames();
   }
@@ -25,10 +24,11 @@ class Streams extends Component {
   render() {
 
     const streams = this.props.streams.streams.data;
+    let gameId = this.props.match.params.gameId;
 
     return (
       <div>
-        <Header location={this.props.location} />
+        <Header gameId={this.props.match.params.gameId} />
 
         {/* Before data is loaded... */}
         {!this.props.streams.fetched &&
@@ -49,10 +49,10 @@ class Streams extends Component {
 
                   return (
                     <div key={index} className="streamCard">
-                      <Link to={`/live/${streamer}`}>
+                      <Link to={`/live/${gameId}/${streamer}`} params={{ gameId, streamer }}>
                         <img src={streamImage} alt={`${streamer} cover image`} />
                       </Link>
-                      <Link to={`/live/${streamer}`}>
+                      <Link to={`/live/${gameId}/${streamer}`}>
                         <h3>{stream.title}</h3>
                       </Link>
                       <p>{stream.viewer_count} spectateurs sur {streamer}</p>

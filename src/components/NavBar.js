@@ -29,8 +29,8 @@ class NavBar extends Component {
 
           <Switch>
             <Route path="/top-games" component={TopGames} />
-            <Route path="/streams" component={Streams} />
-            <Route path="/live" component={LiveStream} />
+            <Route path="/streams/:gameId" component={Streams} />
+            <Route path="/live/:gameId/:streamer" component={LiveStream} />
           </Switch>
         </div>
 
