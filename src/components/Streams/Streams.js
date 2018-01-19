@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import CircularProgress from 'material-ui/CircularProgress';
 
-import Header from './Header';
+import Header from '../Header/Header';
 
 import { connect } from 'react-redux';
-import { fetchGames } from '../redux/actions/fetchGames';
-import { fetchStreams } from '../redux/actions/fetchStreams';
+import { fetchGames } from '../../redux/actions/fetchGames';
+import { fetchStreams } from '../../redux/actions/fetchStreams';
 
 import './Streams.scss';
 
@@ -28,6 +28,7 @@ class Streams extends Component {
 
     return (
       <div>
+
         <Header gameId={this.props.match.params.gameId} />
 
         {/* Before data is loaded... */}
@@ -45,28 +46,21 @@ class Streams extends Component {
                 {streams.map((stream, index) => {
 
                   let streamer = stream.thumbnail_url.slice(52).slice(0, -21);
-                  let streamImage = stream.thumbnail_url.slice(0, -20) + "230x120.jpg"
-                  let userId = stream.user_id
+                  let streamImage = stream.thumbnail_url.slice(0, -20) + "230x120.jpg";
+                  let userId = stream.user_id;
+                  let streamUrl = `/live/${gameId}/${streamer}/${userId}`;
 
                   return (
                     <div key={index} className="streamCard">
-                      {console.log(stream)}
-                      <Link to={`/live/${gameId}/${streamer}/${userId}`}
+                      <Link to={streamUrl}
                             params={{ gameId, streamer, userId }}>
                         <img src={streamImage} alt={`${streamer} cover image`} />
                       </Link>
-                      <Link to={`/live/${gameId}/${streamer}/${userId}`}>
+                      <Link to={streamUrl}
+                            params={{ gameId, streamer, userId }}>
                         <h3>{stream.title}</h3>
                       </Link>
                       <p>{stream.viewer_count} spectateurs sur {streamer}</p>
-                      
-                      {/* <p>Streamer: {streamer}</p>
-                          <p>Game ID #{stream.game_id}</p>
-                          <p>Stream ID #{stream.id}</p>
-                          <p>User ID: #{stream.user_id}</p>
-                          <p>Language: {stream.language}</p>
-                          <p>Started at: {stream.started_at}</p>
-                          <p>Type: {stream.type}</p> */}
                     </div>
                   )
                 })}

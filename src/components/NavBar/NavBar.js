@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import TopGames from './TopGames';
-import Streams from './Streams';
-import LiveStream from './LiveStream';
+
+import TopGames from '../TopGames/TopGames';
+import Streams from '../Streams/Streams';
+import LiveStream from '../LiveStream/LiveStream';
+
 import './NavBar.scss';
 
 class NavBar extends Component {

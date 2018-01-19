@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { fetchGames } from '../redux/actions/fetchGames';
+import { fetchGames } from '../../redux/actions/fetchGames';
 
 import './Header.scss';
 
