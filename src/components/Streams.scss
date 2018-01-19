@@ -1,17 +1,17 @@
+.channelTitle {
+  color: #6e6779;
+  text-align: left;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 90px;
+  line-height: 30px;
+}
+
 .streamsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
-}
-
-// Streams Title
-.streamCard:first-child::before {
-  content: "TOUTES LES CHAÎNES";
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #6e6779;
-  transform: translateY(-5px);
 }
 
 .streamCard {

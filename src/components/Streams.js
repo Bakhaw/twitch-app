@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import CircularProgress from 'material-ui/CircularProgress';
 
@@ -39,17 +40,23 @@ class Streams extends Component {
           {/* When data is loaded... */}
           {this.props.streams.fetched &&
             <div>
+              <h4 className="channelTitle">TOUTES LES CHAÎNES</h4>
               <div className="streamsContainer">
                 {streams.map((stream, index) => {
+
                   const streamer = stream.thumbnail_url.slice(52).slice(0, -21);
                   const streamImage = stream.thumbnail_url.slice(0, -20) + "230x120.jpg"
+
                   return (
                     <div key={index} className="streamCard">
-                      <a href={`https://www.twitch.tv/${streamer}`} target="_blank">
+                      <Link to={`/live/${streamer}`}>
                         <img src={streamImage} alt={`${streamer} cover image`} />
-                      </a>
-                      <a href={`https://www.twitch.tv/${streamer}`} target="_blank"><h3>{stream.title}</h3></a>
+                      </Link>
+                      <Link to={`/live/${streamer}`}>
+                        <h3>{stream.title}</h3>
+                      </Link>
                       <p>{stream.viewer_count} spectateurs sur {streamer}</p>
+                      
                       {/* <p>Streamer: {streamer}</p>
                           <p>Game ID #{stream.game_id}</p>
                           <p>Stream ID #{stream.id}</p>

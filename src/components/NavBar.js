@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import TopGames from './TopGames';
 import Streams from './Streams';
+import LiveStream from './LiveStream';
 import './NavBar.scss';
 
 class NavBar extends Component {
@@ -29,6 +30,7 @@ class NavBar extends Component {
           <Switch>
             <Route path="/top-games" component={TopGames} />
             <Route path="/streams" component={Streams} />
+            <Route path="/live" component={LiveStream} />
           </Switch>
         </div>
 
