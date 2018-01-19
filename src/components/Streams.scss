@@ -5,7 +5,19 @@
   margin-top: 10px;
 }
 
+// Streams Title
+.streamCard:first-child::before {
+  content: "TOUTES LES CHAÎNES";
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #6e6779;
+  transform: translateY(-5px);
+}
+
 .streamCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 235px;
   height: 200px;
   margin: 0 10px;

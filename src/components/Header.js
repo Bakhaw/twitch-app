@@ -1,0 +1,57 @@
+import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+import { fetchGames } from '../redux/actions/fetchGames';
+
+import './Header.scss';
+
+class Header extends Component {
+
+  componentWillMount() {
+
+    // store the game ID from the url (/streams/gameID) to make dynamic fetching with this ID
+    const gameId = this.props.location.pathname.slice(9);
+    this.props.fetchGames();
+  }
+
+  render() {
+
+    return (
+      <div>
+
+        {/* Game Title */}
+        {this.props.games.games.map((game, index) => {
+          return (
+            <div key={index}>
+              {game.id === this.props.location.pathname.slice(9) &&
+                <div style={{
+                  background: `url(${game.box_art_url.slice(0, -21)}.jpg) center no-repeat`,
+                  backgroundSize: '100%',
+                  height: '180px'
+                }}>
+                  <h1>{game.name}</h1>
+                </div>
+              }
+            </div>
+          )
+        })}
+
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    games: state.gamesReducer
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchGames: () => { dispatch(fetchGames()) }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
