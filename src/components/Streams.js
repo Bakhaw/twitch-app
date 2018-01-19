@@ -44,15 +44,18 @@ class Streams extends Component {
               <div className="streamsContainer">
                 {streams.map((stream, index) => {
 
-                  const streamer = stream.thumbnail_url.slice(52).slice(0, -21);
-                  const streamImage = stream.thumbnail_url.slice(0, -20) + "230x120.jpg"
+                  let streamer = stream.thumbnail_url.slice(52).slice(0, -21);
+                  let streamImage = stream.thumbnail_url.slice(0, -20) + "230x120.jpg"
+                  let userId = stream.user_id
 
                   return (
                     <div key={index} className="streamCard">
-                      <Link to={`/live/${gameId}/${streamer}`} params={{ gameId, streamer }}>
+                      {console.log(stream)}
+                      <Link to={`/live/${gameId}/${streamer}/${userId}`}
+                            params={{ gameId, streamer, userId }}>
                         <img src={streamImage} alt={`${streamer} cover image`} />
                       </Link>
-                      <Link to={`/live/${gameId}/${streamer}`}>
+                      <Link to={`/live/${gameId}/${streamer}/${userId}`}>
                         <h3>{stream.title}</h3>
                       </Link>
                       <p>{stream.viewer_count} spectateurs sur {streamer}</p>
