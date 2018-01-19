@@ -15,8 +15,10 @@ class LiveStream extends Component {
   }
 
   render() {
+
     let streamer = this.props.match.params.streamer;
     let gameId = this.props.match.params.gameId;
+
     return (
       <div>
 
@@ -29,16 +31,33 @@ class LiveStream extends Component {
           src={`https://twitch.tv/${streamer}/chat`}
         />
 
+        {/* STREAM DATA (TITLE, VIEWERS) */}
         {this.props.streams.fetched &&
-          <div>
-            {/* {this.props.streams.streams.data.map((stream, index) => {
-              this.props.games.games.map((game, index) => {
-                if (game.id === stream.game_id) {
-                  console.log('matches!', game.id, stream.game_id)
-                }
-              })
-            })} */}
-          </div>
+            this.props.streams.streams.data.map((stream, index) => {
+              return (
+                <div key={index}>
+                  {stream.thumbnail_url.slice(52).slice(0, -21) === streamer &&
+                    <div>
+                      <p>{stream.title}</p>
+                      <p>{stream.viewer_count} spectateurs</p>
+                      <p>{streamer}</p>
+                    </div>
+                  }
+                </div>
+              )
+            })
+        }
+
+        {this.props.games.fetched &&
+            this.props.games.games.map((game, index) => {
+              return (
+                <div key={index}>
+                  {game.id === gameId &&
+                    <p>{game.name}</p>
+                  }
+                </div>
+              )
+            })
         }
 
       </div>
