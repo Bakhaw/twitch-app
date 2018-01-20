@@ -9,7 +9,7 @@ import './TopGames.scss';
 class TopGames extends Component {
 
   componentWillMount() {
-    this.props.fetchGames();
+    this.props.fetchGames('https://api.twitch.tv/helix/games/top?first=100');
   }
 
   render() {
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGames: () => { dispatch(fetchGames()) }
+    fetchGames: (url) => { dispatch(fetchGames(url)) }
   } 
 }
 

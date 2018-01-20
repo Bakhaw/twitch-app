@@ -1,16 +1,26 @@
-.liveStreamContainer {
-  width: 100%;
-  display: flex;
-}
 
-.leftMenu {
-  width: 240px;
+.liveStreamContainer {
+  display: flex;
+  overflow: auto;
+  height: 93vh;
 }
 
 .videoPlayer {
-  width: 860px;
+  padding: 15px 30px;  
+  iframe {
+    width: 800px;
+    height: 450px;
+  }
 }
 
 .chat {
-  width: 340px;
+  width: 23%;
+  height: 93vh;
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+  iframe {
+    height: 93vh;
+    width: 340px;
+  }
 }

@@ -1,3 +1,8 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .channelTitle {
   color: #6e6779;
   text-align: left;
@@ -7,7 +12,12 @@
   line-height: 30px;
 }
 
-.streamsContainer {
+.streamsFirstContainer {
+  height: 93vh;
+  overflow: auto;
+}
+
+.streamsSecondContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

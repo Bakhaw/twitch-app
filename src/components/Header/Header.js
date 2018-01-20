@@ -11,7 +11,7 @@ class Header extends Component {
 
     // store the game ID from the url (/streams/gameID) to make dynamic fetching with this ID
     const gameId = this.props.gameId;
-    this.props.fetchGames();
+    this.props.fetchGames('https://api.twitch.tv/helix/games/top?first=100');
   }
 
   render() {
@@ -49,7 +49,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGames: () => { dispatch(fetchGames()) }
+    fetchGames: (url) => { dispatch(fetchGames(url)) }
   }
 }
 

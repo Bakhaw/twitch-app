@@ -18,7 +18,7 @@ class Streams extends Component {
     // store the game ID from the react router params (/streams/gameID) to make dynamic fetching with this ID
     let gameId = this.props.match.params.gameId;
     this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${gameId}&first=100`);
-    this.props.fetchGames();
+    this.props.fetchGames('https://api.twitch.tv/helix/games/top?first=100');
   }
 
   render() {
@@ -27,9 +27,8 @@ class Streams extends Component {
     let gameId = this.props.match.params.gameId;
 
     return (
-      <div>
+      <div className="rightContent">
 
-        <Header gameId={this.props.match.params.gameId} />
 
         {/* Before data is loaded... */}
         {!this.props.streams.fetched &&
@@ -40,24 +39,24 @@ class Streams extends Component {
 
           {/* When data is loaded... */}
           {this.props.streams.fetched &&
-            <div>
+            <div className="streamsFirstContainer">
+              <Header gameId={this.props.match.params.gameId} />
               <h4 className="channelTitle">TOUTES LES CHAÎNES</h4>
-              <div className="streamsContainer">
+              <div className="streamsSecondContainer">
                 {streams.map((stream, index) => {
 
                   let streamer = stream.thumbnail_url.slice(52).slice(0, -21);
                   let streamImage = stream.thumbnail_url.slice(0, -20) + "230x120.jpg";
-                  let userId = stream.user_id;
-                  let streamUrl = `/live/${gameId}/${streamer}/${userId}`;
+                  let streamUrl = `/live/${gameId}/${streamer}`;
 
                   return (
                     <div key={index} className="streamCard">
                       <Link to={streamUrl}
-                            params={{ gameId, streamer, userId }}>
+                            params={{ gameId, streamer }}>
                         <img src={streamImage} alt={`${streamer} cover image`} />
                       </Link>
                       <Link to={streamUrl}
-                            params={{ gameId, streamer, userId }}>
+                            params={{ gameId, streamer }}>
                         <h3>{stream.title}</h3>
                       </Link>
                       <p>{stream.viewer_count} spectateurs sur {streamer}</p>
@@ -83,7 +82,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGames: () => { dispatch(fetchGames()) },
+    fetchGames: (url) => { dispatch(fetchGames(url)) },
     fetchStreams: (url) => { dispatch(fetchStreams(url)) }
   }
 }
