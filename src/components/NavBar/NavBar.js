@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+import LeftMenu from '../LeftMenu/LeftMenu';
 import TopGames from '../TopGames/TopGames';
 import Streams from '../Streams/Streams';
 import LiveStream from '../LiveStream/LiveStream';
@@ -11,9 +12,9 @@ class NavBar extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="content">
 
-          <nav className="navbar navbar-expand-lg">
+          <nav className="navbar navbar-expand-lg fixed-top">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -23,14 +24,16 @@ class NavBar extends Component {
                   <Link to="/" className="nav-link">Twitch App</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/top-games" className="nav-link">Top Games</Link>
+                  <Link to="/directory" className="nav-link">Parcourir</Link>
                 </li>
               </ul>
             </div>
           </nav>
 
+          <LeftMenu />
+
           <Switch>
-            <Route path="/top-games" component={TopGames} />
+            <Route path="/directory" component={TopGames} />
             <Route path="/streams/:gameId" component={Streams} />
             <Route path="/live/:gameId/:streamer/:userId" component={LiveStream} />
           </Switch>

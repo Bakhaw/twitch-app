@@ -17,8 +17,7 @@ class TopGames extends Component {
     const topGames = this.props.topGames;
 
     return (
-      <div>
-        <h1>TOP GAMES</h1>
+      <div className="rightContent">
         {!topGames.fetched &&
           <p>Chargement ...</p>
         }
@@ -28,10 +27,9 @@ class TopGames extends Component {
               return (
                 <div key={index} className="gameCard">
                   <Link to={`/streams/${game.id}`} params={{ gameid: game.id }}>
-                    <img src={`${game.box_art_url.slice(0, -21)}-300x300.jpg`} alt={`${game.name} cover`}/>
+                    <img src={`${game.box_art_url.slice(0, -21)}-285x300.jpg`} alt={`${game.name} cover`}/>
                   </Link>
                   <p>{game.name}</p>
-                  <p>Game ID #{game.id}</p>                  
                 </div>
               )
             })}

@@ -4,17 +4,37 @@ body {
   text-align: center;
 }
 
+.rightContent {
+  width: 83%;
+  margin-left: auto;
+  display: flex;
+  height: 93vh;
+}
+
 .gamesContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: auto;
+  padding: 20px 0;  
+}
+
+.gamesContainer:last-child::after {
+  content: "";
+  flex-basis: 380px;
 }
 
 .gameCard {
-  width: 15%;
-  margin: 20px;
+  width: 190px;
+  height: 300px;
+  padding: 0 10px;
   img {
-    width: 200px;
-    height: 300px;
+    width: 170px;
+    height: 230px;
+  }
+  p {
+    text-overflow: ellipsis;
+    overflow: hidden;    
+    white-space: nowrap;
   }
 }
