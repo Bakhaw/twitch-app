@@ -39,6 +39,7 @@ class LiveStream extends Component {
               this.props.streams.streams.data.map((stream, index) => {
                 return (
                   <div key={index}>
+                    {console.log(stream)}
                     <p>{stream.title}</p>
                     <p>{stream.viewer_count} spectateurs</p>
                     <p>{user.data[0].view_count}</p>

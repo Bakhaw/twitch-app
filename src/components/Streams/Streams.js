@@ -18,7 +18,6 @@ class Streams extends Component {
     // store the game ID from the react router params (/streams/gameID) to make dynamic fetching with this ID
     let gameId = this.props.match.params.gameId;
     this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${gameId}&first=100`);
-    this.props.fetchGames('https://api.twitch.tv/helix/games/top?first=100');
   }
 
   render() {
@@ -75,14 +74,12 @@ class Streams extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    games: state.gamesReducer,
     streams: state.streamsReducer
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchGames: (url) => { dispatch(fetchGames(url)) },
     fetchStreams: (url) => { dispatch(fetchStreams(url)) }
   }
 }
