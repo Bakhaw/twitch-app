@@ -27,6 +27,7 @@
     text-align: left;
     width: 50%;
     padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;    
     div {
       display: flex;
       flex-direction: column;
@@ -39,7 +40,20 @@
     }
     h4 {
       font-size: 16px;
-      font-family: Arial, Helvetica, sans-serif;
+    }
+    p {
+      color: #6441a4;
+      font-size: 14px;
+    }
+    .gameTitle {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;      
+      svg {
+        color: #6e6779;
+        fill: #6e6779;
+        margin-right: 5px;
+      }
     }
   }
   
@@ -49,15 +63,41 @@
     justify-content: flex-end;
     width: 50%;
     p {
-      margin: 0 10px;
+      margin: 0 5px;
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
     }
     .viewerCount {
       display: flex;
+      align-items: center;
       color: #ec1313;
+      svg {
+        color: #ec1313;
+        fill: #ec1313;
+      }
     }
     .userViewCount {
       display: flex;
-      color: #6e6779;      
+      align-items: center;
+      color: #6e6779; 
+      svg {
+        color: #6e6779;
+        fill: #6e6779;
+      }     
+    }
+    .userButtons {
+      button {
+        margin: 0 10px;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 4px 8px;
+        background: none;
+        border: 1px solid #6441a4;
+        color: #6441a4;
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
 }
