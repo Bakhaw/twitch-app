@@ -16,6 +16,52 @@
   }
 }
 
+.streamInfos {
+  display: flex;
+  align-items: center;  
+  margin: 0 30px;
+  border: 1px solid rgb(218, 216, 222);
+  .gameInfos {
+    display: flex;
+    white-space: nowrap;
+    text-align: left;
+    width: 50%;
+    padding-top: 10px;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    img {
+      width: 40px;
+      height: 55px;
+      margin: 0 10px;
+    }
+    h4 {
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+  
+  .streamerInfos {
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+    width: 50%;
+    p {
+      margin: 0 10px;
+    }
+    .viewerCount {
+      display: flex;
+      color: #ec1313;
+    }
+    .userViewCount {
+      display: flex;
+      color: #6e6779;      
+    }
+  }
+}
+
 .chat {
   height: calc(100vh - 50px);
   position: absolute;

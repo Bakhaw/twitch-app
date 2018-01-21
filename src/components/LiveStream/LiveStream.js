@@ -36,19 +36,38 @@ class LiveStream extends Component {
               <div>
 
                 <ChannelHeader userName={user.data[0].display_name} userImage={user.data[0].profile_image_url}/>
-                {/* <iframe
+                <iframe
                   allowFullScreen
                   src={videoPlayerUrl}
-                /> */}
+                />
 
                 {this.props.streams.streams.data.map((stream, index) => {
 
-                  <div key={index}>
-                    <p>{stream.title}</p>
-                    <p>{stream.viewer_count} spectateurs</p>
-                    <p>{user.data[0].view_count}</p>
-                    <p>{this.props.game.games[0].name}</p>
-                  </div>
+                  return (
+                    <div key={index} className="streamInfos">
+
+                      <div className="gameInfos">
+                        <img src={`${this.props.game.games[0].box_art_url.slice(0, -21)}.jpg`} alt={`${this.props.game.games[0].name} cover image`}/>
+                        <div>
+                          <h4>{stream.title}</h4>
+                          <p>{this.props.game.games[0].name}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="streamerInfos">
+                        <div className="viewerCount">
+                          <i className="ion-person"></i>
+                          <p>{stream.viewer_count} spectateurs</p>
+                        </div>
+                        <div className="userViewCount">
+                          <i className="ion-eye"></i>
+                          <p>{user.data[0].view_count}</p>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  )
                 })}
               </div>
             }
