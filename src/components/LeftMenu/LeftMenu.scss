@@ -1,7 +1,7 @@
 .leftNav {
-  width: 17%;
+  width: 240px;
   background: #17141f;
-  height: 93vh;
+  height: calc(100vh - 50px);
   position: absolute;
   left: 0;
   overflow: hidden;

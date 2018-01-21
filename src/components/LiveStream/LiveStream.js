@@ -4,6 +4,8 @@ import { fetchGames } from "../../redux/actions/fetchGames";
 import { fetchStreams } from "../../redux/actions/fetchStreams";
 import { fetchUser } from "../../redux/actions/fetchUser";
 
+import ChannelHeader from './ChannelHeader';
+
 import "./LiveStream.scss";
 
 class LiveStream extends Component {
@@ -27,30 +29,29 @@ class LiveStream extends Component {
     return (
       <div className="rightContent">
         <div className="liveStreamContainer">
+
           {/* Video Player */}
           <div className="videoPlayer">
-            <iframe
-              allowFullScreen
-              src={videoPlayerUrl}
-            />
-
-            {/* STREAM DATA (TITLE, VIEWERS) */}
             {this.props.streams.fetched && this.props.user.fetched && this.props.game.fetched &&
-              this.props.streams.streams.data.map((stream, index) => {
-                return (
+              <div>
+
+                <ChannelHeader userName={user.data[0].display_name} userImage={user.data[0].profile_image_url}/>
+                {/* <iframe
+                  allowFullScreen
+                  src={videoPlayerUrl}
+                /> */}
+
+                {this.props.streams.streams.data.map((stream, index) => {
+
                   <div key={index}>
-                    {console.log(stream)}
                     <p>{stream.title}</p>
                     <p>{stream.viewer_count} spectateurs</p>
                     <p>{user.data[0].view_count}</p>
-                    {console.log(user.data[0])}
-                    <p>{user.data[0].display_name}</p>
-                    <img src={user.data[0].profile_image_url} alt={`${user.data[0].display_name} profile image`}/>
                     <p>{this.props.game.games[0].name}</p>
                   </div>
-                );
-              })}
-
+                })}
+              </div>
+            }
 
           </div>
 
