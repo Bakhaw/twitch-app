@@ -4,9 +4,14 @@
   border-bottom: 1px solid #dad8de;
   margin-bottom: 20px;
   height: 50px;
-  h5 {
-    padding: 5px 10px;
+  & div {
     border-right: 1px solid #dad8de;
+    display: flex;
+    align-items: center;
+    height: 80%;
+    padding: 5px 10px;
+  }
+  h5 {
     color: #19171c;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
@@ -20,5 +25,12 @@
     height: 36px;
     width: 36px;
     margin-left: 10px;
+  }
+}
+
+.followers {
+  h5:nth-child(2) {
+    margin-left: 10px;
+    color: #6e6779;
   }
 }

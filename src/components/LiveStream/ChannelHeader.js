@@ -21,10 +21,10 @@ class ChannelHeader extends Component {
         <div>
           <h5>Événements</h5>
         </div>
-        <div>
+        <div className="followers">
           <h5>Followers</h5>
           {this.props.followers.fetched &&
-            <h3>{this.props.followers.userFollows.total}</h3>
+            <h5>{this.props.followers.userFollows.total}</h5>
           }
         </div>
         <div>
