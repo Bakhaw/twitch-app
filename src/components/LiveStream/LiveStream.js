@@ -12,22 +12,25 @@ import StreamInfosBar from "./StreamInfosBar";
 import "./LiveStream.scss";
 
 class LiveStream extends Component {
-  componentWillMount() {
-    // store the game ID from react router params (/live/gameId) to make dynamic fetching with this ID
-    let streamer = this.props.match.params.streamer;
-    let gameId = this.props.match.params.gameId;
 
-    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?user_login=${streamer}`);
-    this.props.fetchGames(`https://api.twitch.tv/helix/games?id=${gameId}`);
-    this.props.fetchUser(`https://api.twitch.tv/helix/users?login=${streamer}`)
+  state = {
+    // store the game ID from react router params (/live/gameId) to make dynamic fetching with this ID    
+    streamer: this.props.match.params.streamer,
+    gameId: this.props.match.params.gameId,
+  }
+
+  componentWillMount() {
+    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?user_login=${this.state.streamer}`);
+    this.props.fetchGames(`https://api.twitch.tv/helix/games?id=${this.state.gameId}`);
+    this.props.fetchUser(`https://api.twitch.tv/helix/users?login=${this.state.streamer}`)
   }
 
   render() {
-    let streamer = this.props.match.params.streamer;
-    let gameId = this.props.match.params.gameId;
-    let user = this.props.user.user
-    let videoPlayerUrl = `https://twitch.tv/${streamer}/embed`;
-    let chatUrl = `https://twitch.tv/${streamer}/chat`;
+
+    let videoPlayerUrl = `https://twitch.tv/${this.state.streamer}/embed`;
+    let chatUrl = `https://twitch.tv/${this.state.streamer}/chat`;
+
+    const { streams, user, game } = this.props;
 
     return (
       <div className="rightContent">
@@ -35,11 +38,10 @@ class LiveStream extends Component {
 
           {/* Video Player */}
           <div className="videoPlayer">
-            {this.props.streams.fetched && this.props.user.fetched && this.props.game.fetched &&
+            {streams.fetched && user.fetched && game.fetched &&
               <div>
 
-                <ChannelHeader userName={user.data[0].display_name} userImage={user.data[0].profile_image_url}/>
-
+                <ChannelHeader userName={user.user.data[0].display_name} userImage={user.user.data[0].profile_image_url}/>
                 <iframe
                   allowFullScreen
                   src={videoPlayerUrl}
