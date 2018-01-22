@@ -5,6 +5,7 @@ import LeftMenu from '../LeftMenu/LeftMenu';
 import TopGames from '../TopGames/TopGames';
 import Streams from '../Streams/Streams';
 import LiveStream from '../LiveStream/LiveStream';
+import ChannelVideos from '../ChannelVideos/ChannelVideos';
 
 import './NavBar.scss';
 
@@ -40,7 +41,8 @@ class NavBar extends Component {
           <Switch>
             <Route path="/directory" component={TopGames} />
             <Route path="/streams/:gameId" component={Streams} />
-            <Route path="/live/:gameId/:streamer" component={LiveStream} />
+            <Route path="/:streamer/videos" component={ChannelVideos} />
+            <Route path="/live/:gameId/:streamer" component={LiveStream} />            
           </Switch>
         </div>
 

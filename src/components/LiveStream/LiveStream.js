@@ -43,7 +43,8 @@ class LiveStream extends Component {
             {streams.fetched && user.fetched && game.fetched &&
               <div>
 
-                <ChannelHeader userName={user.user.data[0].display_name}
+                <ChannelHeader userLogin={user.user.data[0].login}
+                               userName={user.user.data[0].display_name}
                                userImage={user.user.data[0].profile_image_url}
                                followers={userFollows}/>
                 <iframe
@@ -88,9 +89,6 @@ const mapDispatchToProps = dispatch => {
     },
     fetchUser: url => {
       dispatch(fetchUser(url));
-    },
-    fetchUserFollows: url => {
-      dispatch(fetchUserFollows(url));
     }
   };
 };

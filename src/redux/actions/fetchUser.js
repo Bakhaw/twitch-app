@@ -2,7 +2,6 @@ import axios from 'axios';
 import config from '../../key';
 import { fetchUserFollows } from './fetchUserFollows'
 
-
 export const fetchUser = (url) => {
   return (dispatch) => {
       dispatch({ type: 'FETCH_USER' })

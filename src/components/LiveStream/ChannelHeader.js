@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ChannelHeader.scss';
 
 class ChannelHeader extends Component {
@@ -10,7 +11,7 @@ class ChannelHeader extends Component {
           <h5>{this.props.userName}</h5>
         </div>
         <div>
-          <h5>Vidéos</h5>
+          <Link to={`/${this.props.userLogin}/videos`}><h5>Vidéos</h5></Link>
         </div>
         <div>
           <h5>Clips</h5>
