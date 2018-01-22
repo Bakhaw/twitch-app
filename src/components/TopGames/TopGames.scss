@@ -4,6 +4,14 @@ body {
   text-align: center;
 }
 
+.loading {
+  height: calc(100vh - 50px);
+  width: calc(100vw - 240px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gamesContainer {
   display: flex;
   flex-wrap: wrap;

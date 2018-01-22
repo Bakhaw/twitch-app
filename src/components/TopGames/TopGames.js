@@ -20,7 +20,9 @@ class TopGames extends Component {
     return (
       <div className="rightContent">
         {!topGames.fetched &&
-          <CircularProgress />
+          <div className="loading">
+            <CircularProgress size={20} color="black"/>
+          </div>
         }
         {topGames.fetched &&
           <div className="gamesContainer">

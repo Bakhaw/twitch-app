@@ -31,7 +31,9 @@ class Streams extends Component {
 
         {/* Before data is loaded... */}
         {!this.props.streams.fetched &&
-          <CircularProgress />
+          <div className="loading">
+            <CircularProgress size={20} color="black"/>
+          </div>
         }
 
         <div>

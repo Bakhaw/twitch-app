@@ -27,6 +27,7 @@ class NavBar extends Component {
                     </svg>
                   </Link>
                 </li>
+
                 <li className="nav-item">
                   <Link to="/directory" className="nav-link">Parcourir</Link>
                 </li>
