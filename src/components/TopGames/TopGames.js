@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import CircularProgress from 'material-ui/CircularProgress';
 
 import { connect } from 'react-redux';
 import { fetchGames } from '../../redux/actions/fetchGames';
@@ -19,7 +20,7 @@ class TopGames extends Component {
     return (
       <div className="rightContent">
         {!topGames.fetched &&
-          <p>Chargement ...</p>
+          <CircularProgress />
         }
         {topGames.fetched &&
           <div className="gamesContainer">
