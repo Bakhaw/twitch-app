@@ -14,7 +14,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
+      <div className="streamsHeader">
         {/* Game Title */}
         {this.props.games.games.map((game, index) => {
           return (
@@ -26,7 +26,10 @@ class Header extends Component {
                 height: "180px"
               }}
             >
-              <h1>{game.name}</h1>
+              <div>
+                <img src={`${game.box_art_url.slice(0, -21)}.jpg)`} alt={`${game.name} cover image`}/>
+                <h2>{game.name}</h2>
+              </div>                           
             </div>
           );
         })}
