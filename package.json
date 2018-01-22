@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "9.2.1",
+    "npm": "5.6.0"
+  },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p --progress && node server.js",
     "start": "webpack-dev-server --open --hot"
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "copy-webpack-plugin": "^4.3.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
     "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -16,7 +23,8 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -30,7 +38,6 @@
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
-    "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
   }
 }
