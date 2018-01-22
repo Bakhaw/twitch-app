@@ -23,6 +23,9 @@ class ChannelHeader extends Component {
         </div>
         <div>
           <h5>Followers</h5>
+          {this.props.followers.fetched &&
+            <h3>{this.props.followers.userFollows.total}</h3>
+          }
         </div>
         <div>
           <h5>Suivis</h5>

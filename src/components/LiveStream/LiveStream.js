@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { fetchGames } from "../../redux/actions/fetchGames";
 import { fetchStreams } from "../../redux/actions/fetchStreams";
 import { fetchUser } from "../../redux/actions/fetchUser";
+import { fetchUserFollows } from "../../redux/actions/fetchUserFollows";
 
 import ChannelHeader from './ChannelHeader';
 import StreamInfosBar from "./StreamInfosBar";
@@ -22,7 +23,7 @@ class LiveStream extends Component {
   componentWillMount() {
     this.props.fetchStreams(`https://api.twitch.tv/helix/streams?user_login=${this.state.streamer}`);
     this.props.fetchGames(`https://api.twitch.tv/helix/games?id=${this.state.gameId}`);
-    this.props.fetchUser(`https://api.twitch.tv/helix/users?login=${this.state.streamer}`)
+    this.props.fetchUser(`https://api.twitch.tv/helix/users?login=${this.state.streamer}`);
   }
 
   render() {
@@ -30,7 +31,7 @@ class LiveStream extends Component {
     let videoPlayerUrl = `https://twitch.tv/${this.state.streamer}/embed`;
     let chatUrl = `https://twitch.tv/${this.state.streamer}/chat`;
 
-    const { streams, user, game } = this.props;
+    const { streams, user, game, userFollows } = this.props;
 
     return (
       <div className="rightContent">
@@ -38,10 +39,13 @@ class LiveStream extends Component {
 
           {/* Video Player */}
           <div className="videoPlayer">
+
             {streams.fetched && user.fetched && game.fetched &&
               <div>
 
-                <ChannelHeader userName={user.user.data[0].display_name} userImage={user.user.data[0].profile_image_url}/>
+                <ChannelHeader userName={user.user.data[0].display_name}
+                               userImage={user.user.data[0].profile_image_url}
+                               followers={userFollows}/>
                 <iframe
                   allowFullScreen
                   src={videoPlayerUrl}
@@ -69,7 +73,8 @@ const mapStateToProps = state => {
   return {
     game: state.gamesReducer,
     streams: state.streamsReducer,
-    user: state.userReducer
+    user: state.userReducer,
+    userFollows: state.userFollowsReducer
   };
 };
 
@@ -83,6 +88,9 @@ const mapDispatchToProps = dispatch => {
     },
     fetchUser: url => {
       dispatch(fetchUser(url));
+    },
+    fetchUserFollows: url => {
+      dispatch(fetchUserFollows(url));
     }
   };
 };
