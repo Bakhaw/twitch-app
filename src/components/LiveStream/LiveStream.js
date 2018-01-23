@@ -38,7 +38,7 @@ class LiveStream extends Component {
         <div className="liveStreamContainer">
 
           {/* Video Player */}
-          <div className="videoPlayer">
+          <div className="videoContainer">
 
             {streams.fetched && user.fetched && game.fetched &&
               <div>
@@ -47,10 +47,13 @@ class LiveStream extends Component {
                                userName={user.user.data[0].display_name}
                                userImage={user.user.data[0].profile_image_url}
                                followers={userFollows}/>
-                <iframe
-                  allowFullScreen
-                  src={videoPlayerUrl}
-                />
+                
+                <div className="videoPlayer">
+                  <iframe
+                    allowFullScreen
+                    src={videoPlayerUrl}
+                  />
+                </div>
 
                 <StreamInfosBar {...this.props}/>
 

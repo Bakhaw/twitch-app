@@ -17,7 +17,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   overflow: auto;
-  padding: 20px 0;  
+  padding: 20px 0;
+  background-color: #faf9fa;
 }
 
 .gamesContainer:last-child::after {
@@ -31,11 +32,20 @@ body {
   padding: 0 10px;
   img {
     width: 170px;
-    height: 230px;
+    height: 240px;
   }
-  p {
+  a, p {
+    color: #19171c;  
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
     text-overflow: ellipsis;
     overflow: hidden;    
     white-space: nowrap;
+    text-align: left;
+    &:hover {
+      color: #6441a4;
+      text-decoration: none;
+    }
   }
 }

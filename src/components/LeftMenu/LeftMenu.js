@@ -5,7 +5,6 @@ class LeftMenu extends Component {
   render() { 
     return (
       <div className="leftNav">
-        LeftMenu
       </div>
     )
   }

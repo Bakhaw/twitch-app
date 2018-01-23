@@ -31,8 +31,8 @@ class TopGames extends Component {
                 <div key={index} className="gameCard">
                   <Link to={`/streams/${game.id}`} params={{ gameid: game.id }}>
                     <img src={`${game.box_art_url.slice(0, -21)}-285x300.jpg`} alt={`${game.name} cover`}/>
+                    <p>{game.name}</p>                  
                   </Link>
-                  <p>{game.name}</p>
                 </div>
               )
             })}

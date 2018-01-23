@@ -14,16 +14,15 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="streamsHeader">
+      <div className="headerContainer">
         {/* Game Title */}
         {this.props.games.games.map((game, index) => {
           return (
             <div
               key={index}
+              className="headerContent"
               style={{
-                background: `url(${game.box_art_url.slice(0, -21)}.jpg) center no-repeat`,
-                backgroundSize: "100%",
-                height: "180px"
+                backgroundImage: `url(${game.box_art_url.slice(0, -21)}.jpg)`,
               }}
             >
               <div>

@@ -47,7 +47,7 @@ class Streams extends Component {
                 {streams.map((stream, index) => {
 
                   let streamer = stream.thumbnail_url.slice(52).slice(0, -21);
-                  let streamImage = stream.thumbnail_url.slice(0, -20) + "230x120.jpg";
+                  let streamImage = stream.thumbnail_url.slice(0, -20) + "320x180.jpg";
                   let streamUrl = `/live/${gameId}/${streamer}`;
 
                   return (
@@ -60,7 +60,12 @@ class Streams extends Component {
                             params={{ gameId, streamer }}>
                         <h3>{stream.title}</h3>
                       </Link>
-                      <p>{stream.viewer_count} spectateurs sur {streamer}</p>
+                      <p>{stream.viewer_count} spectateurs sur 
+                        <Link to={`/${streamer}/videos`}
+                              params={{ gameId, streamer }}>
+                          &nbsp;{streamer}
+                        </Link>
+                      </p>
                     </div>
                   )
                 })}
