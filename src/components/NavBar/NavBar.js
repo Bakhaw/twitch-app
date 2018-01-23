@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+import Home from '../Home/Home';
 import LeftMenu from '../LeftMenu/LeftMenu';
 import TopGames from '../TopGames/TopGames';
 import Streams from '../Streams/Streams';
@@ -42,7 +43,8 @@ class NavBar extends Component {
             <Route path="/directory" component={TopGames} />
             <Route path="/streams/:gameId" component={Streams} />
             <Route path="/:streamer/videos" component={ChannelVideos} />
-            <Route path="/live/:gameId/:streamer" component={LiveStream} />            
+            <Route path="/live/:gameId/:streamer" component={LiveStream} />
+            <Route path="/" component={Home} />         
           </Switch>
         </div>
 
