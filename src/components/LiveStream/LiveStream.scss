@@ -26,7 +26,8 @@
 
 .chat {
   height: calc(100vh - 50px);
-  position: absolute;
+  border:2px solid red;
+  position: fixed;
   right: 0;
   overflow: hidden;
   iframe {
