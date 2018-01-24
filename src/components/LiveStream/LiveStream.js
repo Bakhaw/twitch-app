@@ -53,6 +53,7 @@ class LiveStream extends Component {
                     allowFullScreen
                     src={videoPlayerUrl}
                   />
+                  <div className="scrollbar"></div>
                 </div>
 
                 <StreamInfosBar {...this.props}/>
