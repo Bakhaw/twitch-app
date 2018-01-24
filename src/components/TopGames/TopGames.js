@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import CircularProgress from 'material-ui/CircularProgress';
 
 import { connect } from 'react-redux';
@@ -10,7 +11,7 @@ import './TopGames.scss';
 class TopGames extends Component {
 
   componentWillMount() {
-    this.props.fetchGames('https://api.twitch.tv/helix/games/top?first=100');
+    this.props.fetchGames('https://api.twitch.tv/helix/games/top?first=100');      
   }
 
   render() {

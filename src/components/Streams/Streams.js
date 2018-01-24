@@ -9,21 +9,67 @@ import { connect } from 'react-redux';
 import { fetchGames } from '../../redux/actions/fetchGames';
 import { fetchStreams } from '../../redux/actions/fetchStreams';
 
+import InfiniteScroll from './InfiniteScroll';
+
 import './Streams.scss';
 
 class Streams extends Component {
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // store the game ID from the react router params (/streams/gameID) to make dynamic fetching with this ID    
+      gameId: this.props.match.params.gameId,
+      numberToFetch: 20
+    }
+  }
 
-    // store the game ID from the react router params (/streams/gameID) to make dynamic fetching with this ID
-    let gameId = this.props.match.params.gameId;
-    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${gameId}&first=100`);
+  componentWillMount () {
+    window.addEventListener('scroll', this.handleOnScroll);
+
+    this.initFetchData();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleOnScroll);
+  }
+
+  triggerFetchMoreData = () => {
+
+    if (this.state.numberToFetch < 100) {
+      this.fetchMoreData();
+    }
+
+    this.setState({ requestSent: true })
+    console.log(this.props.streams)    
+  }
+
+  initFetchData = () => {
+    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}`);
+  }
+
+  fetchMoreData = () => {
+    this.setState({ numberToFetch: this.state.numberToFetch + 20 })
+    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}`)
+  }
+
+  handleOnScroll = () => {
+    // http://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom
+    const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    const scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+    const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+
+    if (scrolledToBottom) {
+      this.triggerFetchMoreData();
+    }
   }
 
   render() {
 
     const streams = this.props.streams.streams.data;
     let gameId = this.props.match.params.gameId;
+
 
     return (
       <div className="rightContent">
@@ -37,7 +83,6 @@ class Streams extends Component {
         }
 
         <div>
-
           {/* When data is loaded... */}
           {this.props.streams.fetched &&
             <div className="streamsFirstContainer">
