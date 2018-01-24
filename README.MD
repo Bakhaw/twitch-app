@@ -1,4 +1,4 @@
-### Twitch App !
+### Twitch Application, using React.js and the twitch.tv API
 
 #### Clone the project and install the dependencies
 
@@ -14,4 +14,4 @@ $ yarn install
 $ yarn start
 ```
 
-#### If you are not redirected, visit [localhost:3000]
+#### If you are not redirected, visit [localhost:3000](localhost:3000)
