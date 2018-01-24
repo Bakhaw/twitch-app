@@ -27,24 +27,14 @@ class Streams extends Component {
   componentWillMount () {
     window.addEventListener('scroll', this.handleOnScroll);
 
-    this.initFetchData();
+    this.fetchInitData();
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleOnScroll);
   }
 
-  triggerFetchMoreData = () => {
-
-    if (this.state.numberToFetch < 100) {
-      this.fetchMoreData();
-    }
-
-    this.setState({ requestSent: true })
-    console.log(this.props.streams)    
-  }
-
-  initFetchData = () => {
+  fetchInitData = () => {
     this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}`);
   }
 
@@ -60,8 +50,8 @@ class Streams extends Component {
     const clientHeight = document.documentElement.clientHeight || window.innerHeight;
     const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
 
-    if (scrolledToBottom) {
-      this.triggerFetchMoreData();
+    if (scrolledToBottom && this.state.numberToFetch < 100) {
+      this.fetchMoreData();
     }
   }
 
