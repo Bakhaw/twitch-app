@@ -77,7 +77,6 @@ class Streams extends Component {
           {this.props.streams.fetched &&
             <div className="streamsFirstContainer">
               <Header gameId={this.props.match.params.gameId} />
-              <h4 className="channelTitle">TOUTES LES CHAÎNES</h4>
               <div className="streamsSecondContainer">
                 {streams.map((stream, index) => {
 
@@ -86,21 +85,27 @@ class Streams extends Component {
                   let streamUrl = `/live/${gameId}/${streamer}`;
 
                   return (
-                    <div key={index} className="streamCard">
-                      <Link to={streamUrl}
-                            params={{ gameId, streamer }}>
-                        <img src={streamImage} alt={`${streamer} cover image`} />
-                      </Link>
-                      <Link to={streamUrl}
-                            params={{ gameId, streamer }}>
-                        <h3>{stream.title}</h3>
-                      </Link>
-                      <p>{stream.viewer_count} spectateurs sur 
-                        <Link to={`/${streamer}/videos`}
+                    <div className="test">
+
+                      <h4 className="streamsTitle">TOUTES LES CHAÎNES</h4>
+
+                      <div key={index} className="streamCard">
+                        <Link to={streamUrl}
                               params={{ gameId, streamer }}>
-                          &nbsp;{streamer}
+                          <img src={streamImage} alt={`${streamer} cover image`} />
                         </Link>
-                      </p>
+                        <Link to={streamUrl}
+                              params={{ gameId, streamer }}>
+                          <h3>{stream.title}</h3>
+                        </Link>
+                        <p>{stream.viewer_count} spectateurs sur 
+                          <Link to={`/${streamer}/videos`}
+                                params={{ gameId, streamer }}>
+                            &nbsp;{streamer}
+                          </Link>
+                        </p>
+                      </div>
+
                     </div>
                   )
                 })}

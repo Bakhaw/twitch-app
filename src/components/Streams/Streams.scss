@@ -3,13 +3,22 @@ body {
   margin: 0;
 }
 
-.channelTitle {
-  color: #6e6779;
-  text-align: left;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 20px;
-  margin-top: 20px;
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  .streamsTitle {
+    display: none;
+    color: #6e6779;
+    text-align: left;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+    margin: 10px auto;
+  }
+  &:first-child h4 {
+    display: block;
+  }
 }
 
 .rightContent {
@@ -36,10 +45,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 370px;
+  width: 340px;
+  max-height: 100%;
   font-family: Arial, Helvetica, sans-serif;  
   text-align: left;
-  margin: 5px 10px;
+  padding: 5px 10px;
+  &:first-child::before {
+    content: "lol";
+    border: 2px solid red;
+  }
   img {
     width: 100%;
   }
