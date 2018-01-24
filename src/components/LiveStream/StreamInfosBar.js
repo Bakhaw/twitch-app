@@ -8,7 +8,7 @@ class StreamInfosBar extends Component {
     let user = this.props.user.user
 
     return (
-      <div>
+      <div className="streamInfosContainer">
         {this.props.streams.streams.data.map((stream, index) => {
 
           return (
@@ -16,8 +16,8 @@ class StreamInfosBar extends Component {
 
               <div className="gameInfos">
                 <img src={`${this.props.game.games[0].box_art_url.slice(0, -21)}.jpg`} alt={`${this.props.game.games[0].name} cover image`} />
-                <div>
-                  <h4>{stream.title}</h4>
+                <div className="textInfos">
+                  <h4 data-text={stream.title}>{stream.title}</h4>
                   <div className="gameTitle">
                     <svg width="18px" height="18px" version="1.1" viewBox="0 0 18 18" x="0px" y="0px">
                       <path clipRule="evenodd" d="M9,8.293l-3-3V1h6v4.293L9,8.293z M5.293,12H1V6h4.293l3,3L5.293,12z M9,9.707l3,3V17H6v-4.293L9,9.707z M12.707,6H17v6h-4.293l-3-3L12.707,6z" fillRule="evenodd"></path>

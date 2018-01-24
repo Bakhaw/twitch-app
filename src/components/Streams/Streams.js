@@ -85,7 +85,7 @@ class Streams extends Component {
                   let streamUrl = `/live/${gameId}/${streamer}`;
 
                   return (
-                    <div className="test">
+                    <div className="streamsThirdContainer">
 
                       <h4 className="streamsTitle">TOUTES LES CHAÎNES</h4>
 
