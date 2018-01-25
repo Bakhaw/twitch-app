@@ -26,3 +26,7 @@ $videoContainerWidth: calc(100vw - (#{$leftMenuWidth} + #{$chatWidth})); // 580p
 $gameInfosImageWidth: 40px;
 $gameInfosImageHeight: 55px;
 $textInfosWidth: calc(100% - (#{$gameInfosImageWidth})); // 60px = $gameInfosImageWidth (40px) + img margin: 0 10px (20px)
+
+// ChannelVideos
+$videoCardHeight: 380px;
+$videoCardWidth: 50%;

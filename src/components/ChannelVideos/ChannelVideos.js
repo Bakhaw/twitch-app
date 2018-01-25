@@ -19,37 +19,42 @@ class ChannelVideos extends Component {
     const { userVideos } = this.props;
     const streamer = this.props.match.params.streamer;
     const chatUrl = `https://twitch.tv/${streamer}/chat`;
-
+    
     return (
       <div className="videosContainer">
         {userVideos.fetched &&
           <div className="videosContent">
-          <iframe src="https://player.twitch.tv/?video=221742982" frameBorder="0" height={200} width={250} />
             {userVideos.userVideos.data.map((video, index) => {
+
               let date = video.created_at;
               let videoDate = moment(date).locale('fr').format('DD MMM YYYY');
+              let imageUrl = `${video.thumbnail_url.slice(0, -22)}320x180.jpg`;
+
               return (
                 <div key={index} className="videoCard">
-                  <p>view count: {video.view_count}</p>
-                  <p>duration: {video.duration}</p>
-                  <img src={`${video.thumbnail_url.slice(0, -22)}300x300.jpg`} alt={`${video.title} cover image`} />                  
-                  {/* <p>video ID: {video.id}</p> */}
-                  {/* <p>user ID: {video.user_id}</p> */}
-                  <div className="videoInfos">
-                    <p>{video.title}</p>
-                    <p>{videoDate}</p>
-                    <p>url: {video.url}</p>
+                  <div className="videoTopInfos">
+                    <div className="stats">
+                      <svg>
+                        <path clipRule="evenodd" d="M11,13H5L1,9V8V7l4-4h6l4,4v1v1L11,13z M8,5C6.344,5,5,6.343,5,8c0,1.656,1.344,3,3,3c1.657,0,3-1.344,3-3C11,6.343,9.657,5,8,5z M8,9C7.447,9,7,8.552,7,8s0.447-1,1-1s1,0.448,1,1S8.553,9,8,9z" fillRule="evenodd"></path>
+                      </svg>
+                      <p>{video.view_count}</p>
+                    </div>
+                    <div className="stats">
+                      <p>{video.duration}</p>                      
+                    </div>
                   </div>
-                  {/* <p>published at: {video.published_at}</p> */}
-                  {/* <p>language: {video.language}</p> */}
-                  {/* <p>Type? {video.viewable}</p> */}
+                  <img src={imageUrl} alt={`${video.title} cover image`} />                  
+                  <div className="videoBottomInfos">
+                    <p>{video.title}</p>
+                    <p>{videoDate} . {streamer}</p>
+                  </div>
                 </div>
               )
             })}
           </div>
         }
         <div className="chat">
-          {/* <iframe src={chatUrl} /> */}
+          <iframe src={chatUrl} />
         </div>
       </div>
     )
