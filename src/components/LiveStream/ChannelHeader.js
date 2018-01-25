@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './ChannelHeader.scss';
 
 class ChannelHeader extends Component {
   render() {

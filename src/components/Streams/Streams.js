@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 
 import CircularProgress from 'material-ui/CircularProgress';
 
-import Header from '../Header/Header';
+import Header from './Header';
 
 import { connect } from 'react-redux';
 import { fetchGames } from '../../redux/actions/fetchGames';
 import { fetchStreams } from '../../redux/actions/fetchStreams';
 
 import InfiniteScroll from './InfiniteScroll';
-
-import './Streams.scss';
 
 class Streams extends Component {
 
@@ -85,11 +83,11 @@ class Streams extends Component {
                   let streamUrl = `/live/${gameId}/${streamer}`;
 
                   return (
-                    <div className="streamsThirdContainer">
+                    <div key={index} className="streamsThirdContainer">
 
                       <h4 className="streamsTitle">TOUTES LES CHAÎNES</h4>
 
-                      <div key={index} className="streamCard">
+                      <div className="streamCard">
                         <Link to={streamUrl}
                               params={{ gameId, streamer }}>
                           <img src={streamImage} alt={`${streamer} cover image`} />

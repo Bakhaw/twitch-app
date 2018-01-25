@@ -6,8 +6,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import { connect } from 'react-redux';
 import { fetchGames } from '../../redux/actions/fetchGames';
 
-import './TopGames.scss';
-
 class TopGames extends Component {
 
   componentWillMount() {

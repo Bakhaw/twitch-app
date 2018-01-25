@@ -8,8 +8,6 @@ import Streams from '../Streams/Streams';
 import LiveStream from '../LiveStream/LiveStream';
 import ChannelVideos from '../ChannelVideos/ChannelVideos';
 
-import './NavBar.scss';
-
 class NavBar extends Component {
   render() {
     return (

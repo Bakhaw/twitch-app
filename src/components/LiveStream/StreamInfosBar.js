@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './StreamInfosBar.scss';
-
 class StreamInfosBar extends Component {
   render() {
     let user = this.props.user.user

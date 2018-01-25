@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchGames } from "../../redux/actions/fetchGames";
 
-import "./Header.scss";
-
 class Header extends Component {
   componentWillMount() {
     // store the game ID from the url (/streams/gameID) to make dynamic fetching with this ID

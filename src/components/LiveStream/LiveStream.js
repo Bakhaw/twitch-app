@@ -10,8 +10,6 @@ import { fetchUserFollows } from "../../redux/actions/fetchUserFollows";
 import ChannelHeader from './ChannelHeader';
 import StreamInfosBar from "./StreamInfosBar";
 
-import "./LiveStream.scss";
-
 class LiveStream extends Component {
 
   state = {
@@ -49,10 +47,10 @@ class LiveStream extends Component {
                                followers={userFollows}/>
                 
                 <div className="videoPlayer">
-                  <iframe
+                  {/* <iframe
                     allowFullScreen
                     src={videoPlayerUrl}
-                  />
+                  /> */}
                   <div className="scrollbar"></div>
                 </div>
 
@@ -65,7 +63,7 @@ class LiveStream extends Component {
 
           {/* Chat */}
           <div className="chat">
-            <iframe src={chatUrl} />
+            {/* <iframe src={chatUrl} /> */}
           </div>
 
         </div>
