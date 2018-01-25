@@ -47,11 +47,10 @@ class LiveStream extends Component {
                                followers={userFollows}/>
                 
                 <div className="videoPlayer">
-                  {/* <iframe
+                  <iframe
                     allowFullScreen
                     src={videoPlayerUrl}
-                  /> */}
-                  <div className="scrollbar"></div>
+                  />
                 </div>
 
                 <StreamInfosBar {...this.props}/>
@@ -63,7 +62,7 @@ class LiveStream extends Component {
 
           {/* Chat */}
           <div className="chat">
-            {/* <iframe src={chatUrl} /> */}
+            <iframe src={chatUrl} />
           </div>
 
         </div>

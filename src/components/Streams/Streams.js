@@ -9,8 +9,6 @@ import { connect } from 'react-redux';
 import { fetchGames } from '../../redux/actions/fetchGames';
 import { fetchStreams } from '../../redux/actions/fetchStreams';
 
-import InfiniteScroll from './InfiniteScroll';
-
 class Streams extends Component {
 
   constructor(props) {
@@ -18,6 +16,7 @@ class Streams extends Component {
     this.state = {
       // store the game ID from the react router params (/streams/gameID) to make dynamic fetching with this ID    
       gameId: this.props.match.params.gameId,
+      // number of streams to fetch every time
       numberToFetch: 20
     }
   }
@@ -33,10 +32,12 @@ class Streams extends Component {
   }
 
   fetchInitData = () => {
+    // fetch the first 20 streams
     this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}`);
   }
 
   fetchMoreData = () => {
+    // when the page is fully scrolled down, fetch 20 new streams
     this.setState({ numberToFetch: this.state.numberToFetch + 20 })
     this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}`)
   }
@@ -49,12 +50,14 @@ class Streams extends Component {
     const scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
 
     if (scrolledToBottom && this.state.numberToFetch < 100) {
+      // if page is scrolled to bottom and total streams fetched are less than 100, fires fetchMoreData()
       this.fetchMoreData();
     }
   }
 
   render() {
 
+    // streams array
     const streams = this.props.streams.streams.data;
     let gameId = this.props.match.params.gameId;
 
