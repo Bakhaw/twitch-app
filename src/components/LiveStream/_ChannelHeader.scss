@@ -1,21 +1,20 @@
 .channelHeader {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #dad8de;
+  border-bottom: $channelHeaderBorder;
   margin-bottom: 20px;
   height: 50px;
-  background-color: #fff;
+  background-color: $white;
   & div {
-    border-right: 1px solid #dad8de;
+    border-right: $channelHeaderBorder;
     display: flex;
     align-items: center;
     height: 80%;
     padding: 5px 10px;
   }
   h5 {
-    color: #19171c;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: $blackLight;
+    font-size: $fontSize-2;
   }
 }
 
@@ -32,6 +31,6 @@
 .followers {
   h5:nth-child(2) {
     margin-left: 10px;
-    color: #6e6779;
+    color: $greyDark;
   }
 }

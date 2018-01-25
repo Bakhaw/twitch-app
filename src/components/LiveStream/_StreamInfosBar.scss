@@ -8,56 +8,58 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  border: 1px solid rgb(218, 216, 222);
-  background-color: #fff;
+  border: $channelHeaderBorder;
+  background-color: $white;
   .gameInfos {
     display: flex;
     text-align: left;
     width: 100%;
     padding-top: 10px;
-    font-family: Arial, Helvetica, sans-serif;
     .textInfos {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: calc(100% - 60px); // 60px = img width (40px) + img margin: 0 10px (20px)
+      width: $textInfosWidth;
       h4 {
-        font-size: 16px;
+        font-size: $fontSize-3;
         text-overflow: ellipsis;
         overflow: hidden;    
         white-space: nowrap;
         &:hover:after {
+          // Tooltip when hovering stream title
           content: attr(data-text);
           overflow: visible;
           text-overflow: inherit;
-          background: #fff;
+          background: $white;
           position: absolute;
           width: auto;
           max-width: 40rem;
-          border: 1px solid #19171c;
+          border: 1px solid $blackLight;
           padding: 0 .5rem;
           box-shadow: 0 2px 4px 0 rgba(0,0,0,.28);
           white-space: normal;
           word-wrap: break-word;
-          display:block;
-          color:#000;
+          display: block;
+          color:$black;
           padding: 2px;
           line-height: 15px;
           margin-top: 5px;
-          font-size: 12px;
+          font-size: $fontSize-1;
         }
       }
     }
     img {
-      width: 40px;
-      height: 55px;
+      width: $gameInfosImageWidth;
+      height: $gameInfosImageHeight;
       margin: 0 10px;
     }
     a, p {
-      color: #6441a4;
-      font-size: 14px;
+      color: $violetLight;
+      font-size: $fontSize-2;
+      margin-bottom: 10px; 
+      max-height: 25px;     
       &:hover {
-        text-decoration: underline #6441a4 !important;
+        text-decoration: underline;
       }
     }
     .gameTitle {
@@ -65,8 +67,7 @@
       flex-direction: row;
       justify-content: flex-start;      
       svg {
-        color: #6e6779;
-        fill: #6e6779;
+        fill: $greyDark;
         margin-right: 5px;
       }
     }
@@ -82,38 +83,37 @@
   margin-bottom: 10px;
   p {
     margin: 0 5px;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: $fontSize-2;
   }
   .viewerCount {
     display: flex;
     align-items: center;
-    color: #ec1313;
+    color: $red;
     svg {
-      color: #ec1313;
-      fill: #ec1313;
+      color: $red;
+      fill: $red;
     }
   }
   .userViewCount {
     display: flex;
     align-items: center;
-    color: #6e6779; 
+    color: $greyDark; 
     svg {
-      color: #6e6779;
-      fill: #6e6779;
+      fill: $greyDark;
     }     
   }
   .userButtons {
     button {
       margin: 0 10px;
-      font-size: 12px;
-      font-family: Arial, Helvetica, sans-serif;
+      font-size: $fontSize-1;
       padding: 4px 8px;
       background: none;
-      border: 1px solid #6441a4;
-      color: #6441a4;
+      border: 1px solid $violetLight;
+      color: $violetLight;
       &:hover {
         cursor: pointer;
+        border: 1px solid $violetDark;
+        color: $violetDark;
       }
     }
   }

@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchUser } from "../../redux/actions/fetchUser";
 
-import './ChannelVideos.scss';
-
 class ChannelVideos extends Component {
 
   state = {

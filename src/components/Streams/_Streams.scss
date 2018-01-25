@@ -1,6 +1,6 @@
 .rightContent {
-  width: calc(100% - 240px);
-  height: calc(100vh - 50px);
+  width: $bodyWidth;
+  height: $bodyHeight;
   margin-left: auto;
   display: flex;
 }
@@ -8,7 +8,7 @@
 .streamsFirstContainer {
   height: 100%;
   width: 100%;
-  background-color: #faf9fa;
+  background-color: $whiteCream;
 }
 
 .streamsSecondContainer {
@@ -24,10 +24,9 @@
   justify-content: flex-end;
   .streamsTitle {
     display: none;
-    color: #6e6779;
+    color: $greyDark;
     text-align: left;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: $fontSize-2;
     width: 90%;
     margin: 10px auto;
   }
@@ -40,37 +39,36 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 340px;
+  width: $streamCardWidth;
   max-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;  
   text-align: left;
   padding: 5px 10px;
   img {
     width: 100%;
   }
   a, h3 {
-    color: #19171c;
+    color: $blackLight;
     &:hover {
       text-decoration: none;
-      color: #6441a4;
+      color: $violetLight;
     }
     h3 {
       margin-top: 0.5rem;
-      font-size: 14px;
+      font-size: $fontSize-2;
       text-overflow: ellipsis;
       overflow: hidden;    
       white-space: nowrap;
     }
   }
   a, p {
-    color: #6e6779;
-    font-size: 12px;
+    color: $greyDark;
+    font-size: $fontSize-1;
     text-overflow: ellipsis;
     overflow: hidden;    
     white-space: nowrap;
     margin: 0;
     &a:hover {
-      color: #6441a4;
+      color: $violetLight;
     }
   }
 }

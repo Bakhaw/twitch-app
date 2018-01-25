@@ -1,8 +1,8 @@
 .home {
-  height: calc(100vh - 50px);
+  height: $bodyHeight;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(100% - 240px);
+  width: $bodyWidth;
   margin-left: auto;
 }

@@ -1,0 +1,39 @@
+// NavBar
+$navHeight: 50px;
+$navLink: $greyLight;
+
+// LeftMenu
+$leftMenuWidth: 240px;
+
+// TopGames
+$gameCardWidth: 190px;
+$gameCardHeight: 300px;
+$gameCardImageWidth: 170px;
+$gameCardImageHeight: 240px;
+
+// Streams & his Header
+$headerHeight: 180px;
+$headerImageWidth: 90px;
+$headerImageHeight: 120px;
+$headerImageBorder: 4px solid $white;
+$streamCardWidth: 340px;
+
+// LiveStream & his ChannelHeader/StreamInfosBar
+$channelHeaderBorder: 1px solid $greySuperLight;
+$videoPlayerHeight: 450px;
+$chatWidth: 340px;
+$videoContainerWidth: calc(100vw - (#{$leftMenuWidth} + #{$chatWidth})); // 580px => (#{$leftMenuWidth} + #{$chatWidth})
+$gameInfosImageWidth: 40px;
+$gameInfosImageHeight: 55px;
+$textInfosWidth: calc(100% - (#{$gameInfosImageWidth})); // 60px = $gameInfosImageWidth (40px) + img margin: 0 10px (20px)
+
+
+// Main
+$baseFontFamily: Arial, Helvetica, sans-serif;
+$fontSize-1: 12px;
+$fontSize-2: 14px;
+$fontSize-3: 16px;
+$fontSize-4: 28px;
+
+$bodyWidth: calc(100% - #{$leftMenuWidth}); // 240px => $leftMenuWidth
+$bodyHeight: calc(100vh - #{$navHeight}); // 50px => $navHeight

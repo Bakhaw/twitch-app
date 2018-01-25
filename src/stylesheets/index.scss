@@ -1,20 +1,31 @@
+// Don't need to include the '_' or the '.scss' in the import if the file name is '_filename.scss'
+
+// colors
+@import './colors';
+
+// variables
+@import './variables';
+
 // NavBar
-@import '../components/NavBar/NavBar.scss';
+@import '../components/NavBar/NavBar';
 
 // LeftMenu
-@import '../components/LeftMenu/LeftMenu.scss';
+@import '../components/LeftMenu/LeftMenu';
 
 // Home
-@import '../components/Home/Home.scss';
+@import '../components/Home/Home';
 
 // TopGames
-@import '../components/TopGames/TopGames.scss';
+@import '../components/TopGames/TopGames';
 
 // Streams & his Header
-@import '../components/Streams/Header.scss';
-@import '../components/Streams/Streams.scss';
+@import '../components/Streams/Header';
+@import '../components/Streams/Streams';
 
 // LiveStream & his ChannelHeader/StreamInfosBar
-@import '../components/LiveStream/ChannelHeader.scss';
-@import '../components/LiveStream/LiveStream.scss';
-@import '../components/LiveStream/StreamInfosBar.scss';
+@import '../components/LiveStream/ChannelHeader';
+@import '../components/LiveStream/LiveStream';
+@import '../components/LiveStream/StreamInfosBar';
+
+// ChannelVideos
+@import '../components/ChannelVideos/ChannelVideos';

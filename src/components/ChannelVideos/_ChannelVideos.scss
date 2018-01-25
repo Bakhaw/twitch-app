@@ -1,0 +1,13 @@
+.videosContainer {
+  display: flex;
+  justify-content: space-between;
+  min-height: $bodyHeight;
+  overflow: auto;
+  width: $bodyWidth;
+  margin-left: auto;
+}
+
+.videosContent {
+  width: $videoContainerWidth;
+  height: 100%;
+}

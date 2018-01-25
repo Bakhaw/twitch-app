@@ -3,19 +3,19 @@
   display: flex;
   overflow-y: auto;
   overflow-x: hidden;
-  min-height: calc(100vh - 50px);
+  min-height: $bodyHeight;
 }
 
 .videoContainer {
   height: 100%;
-  width: calc(100vw - 580px); // 580px = leftMenu width + chat width
-  background-color: #faf9fa;
+  width: $videoContainerWidth;
+  background-color: $whiteCream;
 }
 
 .videoPlayer {
   display: flex;
-  height: 450px;
-  max-height: 450px;
+  height: $videoPlayerHeight;
+  max-height: $videoPlayerHeight;
   width: 100%;
   padding: 0 30px;
   iframe {
@@ -30,14 +30,14 @@
 }
 
 .chat {
-  height: calc(100vh - 50px);
+  height: $bodyHeight;
   position: fixed;
   right: 0;
   overflow: hidden;
   iframe {
-    height: calc(100vh - 50px);
-    width: 340px;
+    height: $bodyHeight;
+    width: $chatWidth;
     border: none;
-    border-left: 1px solid #dad8de;
+    border-left: $channelHeaderBorder;
   }
 }

@@ -1,5 +1,6 @@
 body {
   padding-top: 50px;
+  font-family: $baseFontFamily;  
 }
 
 .content {
@@ -8,20 +9,19 @@ body {
 }
 
 .navbar {
-  background: #4b367c;
-  height: 50px;
+  background-color: $violetDark;
+  height: $navHeight;
   overflow: hidden;
   a {
-    color: #d3cae8;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    color: $greyLight;
+    font-size: $fontSize-2;
     &:hover {
-      color: #fff;
+      color: $white;
       text-decoration: underline;
     }
   }
   svg {
-    fill: #fff;
+    fill: $white;
   }
 }
 
