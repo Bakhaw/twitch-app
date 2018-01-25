@@ -26,14 +26,3 @@ $videoContainerWidth: calc(100vw - (#{$leftMenuWidth} + #{$chatWidth})); // 580p
 $gameInfosImageWidth: 40px;
 $gameInfosImageHeight: 55px;
 $textInfosWidth: calc(100% - (#{$gameInfosImageWidth})); // 60px = $gameInfosImageWidth (40px) + img margin: 0 10px (20px)
-
-
-// Main
-$baseFontFamily: Arial, Helvetica, sans-serif;
-$fontSize-1: 12px;
-$fontSize-2: 14px;
-$fontSize-3: 16px;
-$fontSize-4: 28px;
-
-$bodyWidth: calc(100% - #{$leftMenuWidth}); // 240px => $leftMenuWidth
-$bodyHeight: calc(100vh - #{$navHeight}); // 50px => $navHeight

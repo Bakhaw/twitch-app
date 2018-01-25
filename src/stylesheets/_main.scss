@@ -1,0 +1,9 @@
+// Main
+$baseFontFamily: Arial, Helvetica, sans-serif;
+$fontSize-1: 12px;
+$fontSize-2: 14px;
+$fontSize-3: 16px;
+$fontSize-4: 28px;
+
+$bodyWidth: calc(100% - #{$leftMenuWidth}); // 240px => $leftMenuWidth
+$bodyHeight: calc(100vh - #{$navHeight}); // 50px => $navHeight
