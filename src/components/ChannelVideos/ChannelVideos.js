@@ -40,6 +40,9 @@ class ChannelVideos extends Component {
                       <p>{video.view_count}</p>
                     </div>
                     <div data-text="durée" className="stats">
+                      <svg>
+                        <path clipRule="evenodd" d="M8,14c-3.313,0-6-2.687-6-6s2.687-6,6-6s6,2.687,6,6S11.313,14,8,14z M8,3C5.238,3,3,5.238,3,8s2.238,5,5,5s5-2.238,5-5S10.762,3,8,3z M9.646,10.354l-2-2L7.515,7.879l1-4l0.971,0.242L8.554,7.847l1.8,1.8L9.646,10.354z"></path>                        
+                      </svg>
                       <p>{video.duration}</p>                      
                     </div>
                   </div>
