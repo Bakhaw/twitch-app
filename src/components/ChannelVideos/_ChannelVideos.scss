@@ -44,7 +44,21 @@
     height: 20px;
     padding: 0 10px;
     border-radius: 5px;
-    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
+    &:hover:after {
+      // Tooltip when hovering stream title
+      content: attr(data-text);
+      text-overflow: inherit;
+      background: $white;
+      position: absolute;
+      display: block;
+      color: $white;
+      padding: 0 5px;      
+      margin-top: 20px;
+      font-size: $fontSize-1;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 5px;     
+    }
     svg {
       width: 20px;
       height: 15px;
