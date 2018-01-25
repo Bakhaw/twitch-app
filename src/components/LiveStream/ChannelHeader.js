@@ -10,7 +10,10 @@ class ChannelHeader extends Component {
           <h5>{this.props.userName}</h5>
         </div>
         <div>
-          <Link to={`/${this.props.userLogin}/videos`}><h5>Vidéos</h5></Link>
+          <Link to={`/${this.props.gameId}/${this.props.userLogin}/videos`}
+                params={{ gameId: this.props.gameId }}>
+                <h5>Vidéos</h5>
+          </Link>
         </div>
         <div>
           <h5>Clips</h5>

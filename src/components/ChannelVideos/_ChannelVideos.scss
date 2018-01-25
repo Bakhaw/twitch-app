@@ -23,6 +23,11 @@
     width: 100%;
     height: 200px;
   }
+  p {
+    font-size: $fontSize-2;
+    color: $blackLight;
+    margin-bottom: 5px;
+  }
 }
 
 .videoTopInfos {

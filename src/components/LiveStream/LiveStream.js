@@ -41,7 +41,8 @@ class LiveStream extends Component {
             {streams.fetched && user.fetched && game.fetched &&
               <div>
 
-                <ChannelHeader userLogin={user.user.data[0].login}
+                <ChannelHeader gameId={this.state.gameId}
+                               userLogin={user.user.data[0].login}
                                userName={user.user.data[0].display_name}
                                userImage={user.user.data[0].profile_image_url}
                                followers={userFollows}/>
@@ -53,7 +54,7 @@ class LiveStream extends Component {
                   />
                 </div>
 
-                <StreamInfosBar {...this.props}/>
+                <StreamInfosBar {...this.props} data={this.props.streams.streams.data}/>
 
               </div>
             }

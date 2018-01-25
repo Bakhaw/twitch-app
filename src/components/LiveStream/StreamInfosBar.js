@@ -7,7 +7,7 @@ class StreamInfosBar extends Component {
 
     return (
       <div className="streamInfosContainer">
-        {this.props.streams.streams.data.map((stream, index) => {
+        {this.props.data.map((stream, index) => {
 
           return (
             <div key={index} className="streamInfos">

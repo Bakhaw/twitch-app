@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+import { Link } from 'react-router-dom';
+
 import { connect } from "react-redux";
 import { fetchUser } from "../../redux/actions/fetchUser";
 
@@ -19,6 +21,7 @@ class ChannelVideos extends Component {
     const { userVideos } = this.props;
     const streamer = this.props.match.params.streamer;
     const chatUrl = `https://twitch.tv/${streamer}/chat`;
+    const gameId = this.props.match.params.gameId;
     
     return (
       <div className="videosContainer">
@@ -29,6 +32,8 @@ class ChannelVideos extends Component {
               let date = video.created_at;
               let videoDate = moment(date).locale('fr').format('DD MMM YYYY');
               let imageUrl = `${video.thumbnail_url.slice(0, -22)}320x180.jpg`;
+              let videoId = video.id;
+              let videoUrl = `/${gameId}/${streamer}/videos/${videoId}`
 
               return (
                 <div key={index} className="videoCard">
@@ -46,7 +51,10 @@ class ChannelVideos extends Component {
                       <p>{video.duration}</p>                      
                     </div>
                   </div>
-                  <img src={imageUrl} alt={`${video.title} cover image`} />                  
+                  <Link to={videoUrl}
+                        params={{ gameId, videoId }}>
+                    <img src={imageUrl} alt={`${video.title} cover image`} />                                          
+                  </Link>
                   <div className="videoBottomInfos">
                     <p>{video.title}</p>
                     <p>{videoDate} . {streamer}</p>
