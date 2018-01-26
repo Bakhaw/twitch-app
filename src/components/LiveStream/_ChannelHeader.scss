@@ -16,6 +16,10 @@
     color: $blackLight;
     font-size: $fontSize-2;
   }
+  h6 {
+    color: $greyLight;
+    text-decoration: line-through;
+  }
 }
 
 .userInfos {

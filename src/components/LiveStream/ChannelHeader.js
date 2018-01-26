@@ -16,13 +16,13 @@ class ChannelHeader extends Component {
           </Link>
         </div>
         <div>
-          <h5>Clips</h5>
+          <h6>Clips</h6>
         </div>
         <div>
-          <h5>Collections</h5>
+          <h6>Collections</h6>
         </div>
         <div>
-          <h5>Événements</h5>
+          <h6>Événements</h6>
         </div>
         <div className="followers">
           <h5>Followers</h5>
@@ -31,7 +31,7 @@ class ChannelHeader extends Component {
           }
         </div>
         <div>
-          <h5>Suivis</h5>
+          <h6>Suivis</h6>
         </div>
       </div>
     )
