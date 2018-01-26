@@ -19,12 +19,14 @@ $headerImageBorder: 4px solid $white;
 $streamCardWidth: 360px;
 
 // LiveStream & his ChannelHeader/StreamInfosBar
+$channelHeaderHeight: 50px;
 $channelHeaderBorder: 1px solid $greySuperLight;
-$videoPlayerHeight: 450px;
 $chatWidth: 340px;
 $videoContainerWidth: calc(100vw - (#{$leftMenuWidth} + #{$chatWidth})); // 580px => (#{$leftMenuWidth} + #{$chatWidth})
 $gameInfosImageWidth: 40px;
 $gameInfosImageHeight: 55px;
+$streamInfosHeight: 130px;
+$videoPlayerHeight: calc(100vh - (#{$navHeight} + #{$channelHeaderHeight} + #{$streamInfosHeight} + 20px)); // 20px => channelHeader margin-bottom
 $textInfosWidth: calc(100% - (#{$gameInfosImageWidth})); // 60px = $gameInfosImageWidth (40px) + img margin: 0 10px (20px)
 
 // ChannelVideos

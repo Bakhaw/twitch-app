@@ -10,6 +10,7 @@
   align-items: center;
   border: $channelHeaderBorder;
   background-color: $white;
+  height: $streamInfosHeight;
   .gameInfos {
     display: flex;
     text-align: left;
