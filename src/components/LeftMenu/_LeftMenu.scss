@@ -5,3 +5,10 @@
   position: fixed;
   left: 0;
 }
+
+@media (max-width: 1200px) {
+  .leftNav {
+    display: none;
+    position: unset;
+  }
+}
