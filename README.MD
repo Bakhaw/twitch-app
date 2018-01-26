@@ -5,13 +5,13 @@
 ```
 $ git clone https://github.com/Bakhaw/twitch-app.git
 $ cd twitch-app/
-$ yarn install
+$ npm/yarn install
 ```
 
 #### Launch the application
 
 ```
-$ yarn start
+$ npm/yarn start
 ```
 
 #### If you are not redirected, visit [localhost:3000](http://localhost:3000)
