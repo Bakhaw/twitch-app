@@ -25,9 +25,20 @@ class NavBar extends Component {
                 </Link>
               </li>
 
-              <li>
-                <Link to="/directory">Parcourir</Link>
-              </li>
+              <div>
+                <li>
+                  <Link to="/directory">Parcourir</Link>
+                </li>
+
+                <li className="shopLink">
+                  <a href="https://www.amazon.com/twitchmerch?channel=tpn&ref_=tw_or_web_tpn_ms" target="_blank">Boutique</a>
+                </li>
+
+                <li className="desktopAppLink">
+                  <a href="https://app.twitch.tv/download" target="_blank">Appli de bureau</a>
+                </li>
+              </div>
+
             </ul>
           </div>
 

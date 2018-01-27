@@ -11,22 +11,22 @@ body {
 .navbar {
   background-color: $violetDark;
   height: $navHeight;
-  display: flex; 
   ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    width: 220px;
-    @include xs {
-      width: 100vw;
-      text-align: left;
-      padding: 0;
+    width: 100%;
+    padding: 0;
+    div {
+      display: flex;
+      justify-content: space-between;
     }
   }
   a {
     color: $greyLight;
     font-size: $fontSize-2;
+    margin-right: 20px;
     &:hover {
       color: $white;
       text-decoration: underline;
@@ -34,6 +34,24 @@ body {
   }
   svg {
     fill: $white;
+  }
+  @include xs {
+    .shopLink a {
+      display: none;
+    }
+    .desktopAppLink a {
+      display: none;
+    }
+  }
+  @include sm {
+    .desktopAppLink a {
+      display: none;
+    }
+  }
+  @include md {
+    .desktopAppLink a {
+      display: none;
+    }
   }
 }
 
