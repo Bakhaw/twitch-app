@@ -26,18 +26,21 @@
     width: $gameCardImageWidth;
     height: $gameCardImageHeight;
   }
-  a, p {
+
+  a {
     color: $blackLight;  
     margin-top: 5px;
+    &:hover {
+      color: $violetLight;
+      text-decoration: none;
+    }
+  }
+  p {
     font-size: $fontSize-2;
     text-overflow: ellipsis;
     overflow: hidden;    
     white-space: nowrap;
     text-align: left;
-    &:hover {
-      color: $violetLight;
-      text-decoration: none;
-    }
   }
   @include xs {
     padding: .66vw;
