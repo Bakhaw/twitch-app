@@ -82,6 +82,20 @@
   }
   @include xs {
     width: 96vw;
+    max-width: 100%;
+    height: auto;
     padding: 1vw;
+  }
+  @include sm {
+    width: 96vw;
+    max-width: 100%;
+    height: auto;
+    padding: 1vw;
+  }
+  @include md {
+    width: 48vw;
+    max-width: 100%;
+    height: auto;
+    padding: .66vw;
   }
 }
