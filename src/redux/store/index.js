@@ -12,6 +12,13 @@ import { videoReducer } from '../reducers/videoReducer';
 
 const middleware = applyMiddleware(thunk);
 
-const reducers = combineReducers({ gamesReducer, streamsReducer, userReducer, userFollowsReducer, userVideosReducer, videoReducer })
+const reducers = combineReducers({
+  gamesReducer,
+  streamsReducer,
+  userReducer,
+  userFollowsReducer,
+  userVideosReducer,
+  videoReducer
+})
 
 export const store = createStore(reducers, middleware);

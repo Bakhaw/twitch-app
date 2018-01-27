@@ -19,4 +19,7 @@
       color: $whiteCream;
       font-size: $fontSize-4;
     }
+    @include xs {
+      display: none;
+    }
   }

@@ -5,4 +5,11 @@
   align-items: center;
   width: $bodyWidth;
   margin-left: auto;
+  @include xs {
+    padding: 0 20px;
+    width: 100%;
+    h4 {
+      font-size: $fontSize-3;
+    }
+  }
 }

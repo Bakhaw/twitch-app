@@ -1,0 +1,43 @@
+// Screen size definition
+
+// Mobile
+$screen-xs-max: 519px;
+
+// High Mobile
+$screen-sm-min: 767px;
+
+// Tablets and small desktops
+$screen-md-min: 992px;
+
+// Large tablets and desktops
+$screen-lg-min: 1600px;
+
+// Mixins
+
+// Mobile
+@mixin xs {
+  @media (max-width: #{$screen-xs-max}) {
+      @content;
+  }
+}
+
+// High Mobile
+@mixin sm {
+  @media (min-width: #{$screen-xs-max} + 1) and (max-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Tablet
+@mixin md {
+  @media (min-width: #{$screen-sm-min} + 1) and (max-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large Desktop
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}

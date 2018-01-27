@@ -3,7 +3,15 @@
   height: $bodyHeight;
   margin-left: auto;
   display: flex;
-  border: 1px solid red;
+  @include xs {
+    width: 100%;
+  }
+  @include sm {
+    width: 100%;
+  }
+  @include md {
+    width: 100%;
+  }
 }
 
 .streamsFirstContainer {
@@ -71,5 +79,9 @@
     &a:hover {
       color: $violetLight;
     }
+  }
+  @include xs {
+    width: 96vw;
+    padding: 1vw;
   }
 }

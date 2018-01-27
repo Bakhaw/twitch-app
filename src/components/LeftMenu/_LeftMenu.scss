@@ -4,11 +4,13 @@
   height: $bodyHeight;
   position: fixed;
   left: 0;
-}
-
-@media (max-width: 1200px) {
-  .leftNav {
-    display: none;
-    position: unset;
+  @include xs {
+    width: 0px;
+  }
+  @include sm {
+    width: 0px;
+  }
+  @include md {
+    width: 0px;
   }
 }

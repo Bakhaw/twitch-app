@@ -11,7 +11,14 @@ body {
 .navbar {
   background-color: $violetDark;
   height: $navHeight;
-  overflow: hidden;
+  display: flex; 
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    width: 220px;
+  }
   a {
     color: $greyLight;
     font-size: $fontSize-2;
@@ -25,6 +32,3 @@ body {
   }
 }
 
-.navbar-nav {
-  align-items: center;
-}
