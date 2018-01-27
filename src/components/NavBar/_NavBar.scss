@@ -18,6 +18,11 @@ body {
     align-items: center;
     list-style-type: none;
     width: 220px;
+    @include xs {
+      width: 100vw;
+      text-align: left;
+      padding: 0;
+    }
   }
   a {
     color: $greyLight;
