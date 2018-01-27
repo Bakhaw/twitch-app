@@ -9,6 +9,9 @@
   height: 100%;
   width: $videoContainerWidth;
   background-color: $whiteCream;
+  @include xs {
+    width: 100%;
+  }
 }
 
 .videoPlayer {
@@ -21,6 +24,12 @@
     height: 100%;
     border: none;
   }
+  @include xs {
+    padding: 0;
+    width: 100vw;
+    height: 100%;
+    max-width: 100%;
+  }
 }
 
 .chat {
@@ -28,10 +37,18 @@
   position: fixed;
   right: 0;
   overflow: hidden;
+  height: $bodyHeight;
+  width: $chatWidth;
   iframe {
-    height: $bodyHeight;
-    width: $chatWidth;
+    height: 100%;
+    width: 100%;
     border: none;
     border-left: $channelHeaderBorder;
+  }
+  @include xs {
+    width: 100vw;
+    max-width: 100%;
+    height: 60vh;
+    transform: translateY(30vh);
   }
 }

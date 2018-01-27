@@ -20,6 +20,9 @@
     color: $greyLight;
     text-decoration: line-through;
   }
+  @include xs {
+    display: none;
+  }
 }
 
 .userInfos {
