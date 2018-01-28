@@ -54,7 +54,6 @@ class LiveStream extends Component {
                     src={videoPlayerUrl}
                   />
                 </div>
-                {console.log(this.props.streams.streams.data)}
                 <StreamInfosBar {...this.props} data={this.props.streams.streams.data}/>
 
               </div>

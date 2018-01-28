@@ -27,7 +27,7 @@ class ChannelHeader extends Component {
         <div className="followers">
           <h5>Followers</h5>
           {this.props.followers.fetched &&
-            <h5>{this.props.followers.userFollows.total}</h5>
+            <h5>{this.props.followers.userFollows.total.toLocaleString()}</h5>
           }
         </div>
         <div>

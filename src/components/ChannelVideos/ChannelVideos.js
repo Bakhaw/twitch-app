@@ -42,7 +42,7 @@ class ChannelVideos extends Component {
                       <svg>
                         <path clipRule="evenodd" d="M11,13H5L1,9V8V7l4-4h6l4,4v1v1L11,13z M8,5C6.344,5,5,6.343,5,8c0,1.656,1.344,3,3,3c1.657,0,3-1.344,3-3C11,6.343,9.657,5,8,5z M8,9C7.447,9,7,8.552,7,8s0.447-1,1-1s1,0.448,1,1S8.553,9,8,9z" fillRule="evenodd"></path>
                       </svg>
-                      <p>{video.view_count}</p>
+                      <p>{video.view_count.toLocaleString()}</p>
                     </div>
                     <div data-text="durée" className="stats">
                       <svg>

@@ -32,14 +32,14 @@ class StreamInfosBar extends Component {
                     <svg width="16px" height="16px" version="1.1" viewBox="0 0 16 16" x="0px" y="0px">
                       <path clipRule="evenodd" d="M11,14H5H2v-1l3-3h2L5,8V2h6v6l-2,2h2l3,3v1H11z" fillRule="evenodd"></path>
                     </svg>
-                    <p>{stream.viewer_count}</p>
+                    <p>{stream.viewer_count.toLocaleString()}</p>
                   </div>
                 }
                 <div className="userViewCount">
                   <svg width="16px" height="16px" version="1.1" viewBox="0 0 16 16" x="0px" y="0px">
                     <path clipRule="evenodd" d="M11,13H5L1,9V8V7l4-4h6l4,4v1v1L11,13z M8,5C6.344,5,5,6.343,5,8c0,1.656,1.344,3,3,3c1.657,0,3-1.344,3-3C11,6.343,9.657,5,8,5z M8,9C7.447,9,7,8.552,7,8s0.447-1,1-1s1,0.448,1,1S8.553,9,8,9z" fillRule="evenodd"></path>
                   </svg>
-                  <p>{user.data[0].view_count}</p>
+                  <p>{user.data[0].view_count.toLocaleString()}</p>
                 </div>
 
                 <div className="userButtons">

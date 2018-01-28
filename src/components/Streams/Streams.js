@@ -99,7 +99,7 @@ class Streams extends Component {
                               params={{ gameId, streamer }}>
                           <h3>{stream.title}</h3>
                         </Link>
-                        <p>{stream.viewer_count} spectateurs sur 
+                        <p>{stream.viewer_count.toLocaleString()} spectateurs sur 
                           <Link to={`/${streamer}/videos`}
                                 params={{ gameId, streamer }}>
                             &nbsp;{streamer}
