@@ -5,7 +5,22 @@
   align-items: center;
   width: $bodyWidth;
   margin-left: auto;
+  text-align: center;
   @include xs {
+    padding: 0 20px;
+    width: 100%;
+    h4 {
+      font-size: $fontSize-3;
+    }
+  }
+  @include sm {
+    padding: 0 20px;
+    width: 100%;
+    h4 {
+      font-size: $fontSize-3;
+    }
+  }
+  @include md {
     padding: 0 20px;
     width: 100%;
     h4 {

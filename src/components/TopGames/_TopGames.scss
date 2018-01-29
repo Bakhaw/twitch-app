@@ -43,8 +43,8 @@
     text-align: left;
   }
   @include xs {
-    padding: .66vw;
-    width: 48vw;
+    padding: .55vw;
+    width: 49vw;
     max-width: 100%;
     height: auto;
     img {
@@ -62,8 +62,8 @@
     }
   }
   @include sm {
-    padding: .4vw;
-    width: 24vw;
+    padding: .3vw;
+    width: 25vw;
     max-width: 100%;
     height: auto;
     img {
@@ -82,8 +82,8 @@
   }
 
   @include md {
-    padding: .4vw;
-    width: 24vw;
+    padding: .3vw;
+    width: 25vw;
     max-width: 100%;
     height: auto;
     img {

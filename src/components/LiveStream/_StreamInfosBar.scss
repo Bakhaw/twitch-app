@@ -5,6 +5,9 @@
   @include xs {
     display: none;
   }
+  @include sm {
+    display: none;
+  }
 }
 
 .streamInfos {

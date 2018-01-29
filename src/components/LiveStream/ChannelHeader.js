@@ -15,13 +15,13 @@ class ChannelHeader extends Component {
                 <h5>Vidéos</h5>
           </Link>
         </div>
-        <div>
+        <div className="disabled">
           <h6>Clips</h6>
         </div>
-        <div>
+        <div className="disabled">
           <h6>Collections</h6>
         </div>
-        <div>
+        <div className="disabled">
           <h6>Événements</h6>
         </div>
         <div className="followers">
@@ -30,7 +30,7 @@ class ChannelHeader extends Component {
             <h5>{this.props.followers.userFollows.total.toLocaleString()}</h5>
           }
         </div>
-        <div>
+        <div className="disabled">
           <h6>Suivis</h6>
         </div>
       </div>
