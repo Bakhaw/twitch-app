@@ -1,4 +1,8 @@
-  .headerContent {
+.headerContainer {
+  min-width: calc(100vw - #{$leftMenuWidth});
+}
+
+.headerContent {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
