@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import CircularProgress from 'material-ui/CircularProgress';
 
 import Header from './Header';
+import FrenchStreams from './FrenchStreams';
 
 import { connect } from 'react-redux';
 import { fetchGames } from '../../redux/actions/fetchGames';
@@ -77,7 +78,10 @@ class Streams extends Component {
           {/* When data is loaded... */}
           {this.props.streams.fetched &&
             <div className="streamsFirstContainer">
-              <Header gameId={this.props.match.params.gameId} />
+              <Header gameId={gameId} />
+              
+              <FrenchStreams streams={streams} gameId={gameId} />
+
               <div className="streamsSecondContainer">
                 {streams.map((stream, index) => {
 

@@ -12,10 +12,14 @@ import StreamInfosBar from "./StreamInfosBar";
 
 class LiveStream extends Component {
 
-  state = {
-    // store the game ID from react router params (/live/gameId) to make dynamic fetching with this ID    
-    streamer: this.props.match.params.streamer,
-    gameId: this.props.match.params.gameId,
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      // store the game ID from react router params (/live/gameId) to make dynamic fetching with this ID    
+      streamer: this.props.match.params.streamer,
+      gameId: this.props.match.params.gameId,
+    }
   }
 
   componentWillMount() {
@@ -62,7 +66,7 @@ class LiveStream extends Component {
           </div>
 
           {/* Chat */}
-          <div className="chat">
+          <div className="chat" style={{ width: this.state.chatWidth, display: this.state.display }}>
             <iframe src={chatUrl} />
           </div>
 
