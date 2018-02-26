@@ -80,7 +80,7 @@ class Streams extends Component {
             <div className="streamsFirstContainer">
               <Header gameId={gameId} />
               
-              <FrenchStreams streams={streams} gameId={gameId} />
+              <FrenchStreams streams={streams} gameId={gameId}/>
 
               <div className="streamsSecondContainer">
                 {streams.map((stream, index) => {

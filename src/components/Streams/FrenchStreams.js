@@ -10,6 +10,7 @@ class FrenchStreams extends Component {
     return (
 
       <div>
+          <p>Chaînes en Français</p>        
         <div className="streamsSecondContainer">
           {this.props.streams.map((stream, index) => {
 
@@ -20,24 +21,24 @@ class FrenchStreams extends Component {
             return (
               <div key={index} className="streamsThirdContainer">
 
-                <h4 className="streamsTitle">CHAÎNES EN FRANÇAIS</h4>
-
                 {stream.language === "fr" &&
                   <div className="streamCard">
-                    <Link to={streamUrl}
-                      params={{ gameId, streamer }}>
-                      <img src={streamImage} alt={`${streamer} cover image`} />
-                    </Link>
-                    <Link to={streamUrl}
-                      params={{ gameId, streamer }}>
-                      <h3>{stream.title}</h3>
-                    </Link>
-                    <p>{stream.viewer_count.toLocaleString()} spectateurs sur
-                                    <Link to={`/${gameId}/${streamer}/videos`}
+                    <div>
+                      <Link to={streamUrl}
                         params={{ gameId, streamer }}>
-                        &nbsp;{streamer}
+                        <img src={streamImage} alt={`${streamer} cover image`} />
                       </Link>
-                    </p>
+                      <Link to={streamUrl}
+                        params={{ gameId, streamer }}>
+                        <h3>{stream.title}</h3>
+                      </Link>
+                      <p>{stream.viewer_count.toLocaleString()} spectateurs sur
+                          <Link to={`/${gameId}/${streamer}/videos`}
+                          params={{ gameId, streamer }}>
+                          &nbsp;{streamer}
+                        </Link>
+                      </p>
+                    </div>
                   </div>
                 }
               </div>

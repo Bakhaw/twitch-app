@@ -39,6 +39,7 @@
 .streamsThirdContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: flex-end;
   .streamsTitle {
     display: none;
@@ -58,6 +59,7 @@
   flex-direction: column;
   justify-content: center;
   width: $streamCardWidth;
+  min-height: 0px;
   max-height: 100%;
   text-align: left;
   padding: 5px 10px;
