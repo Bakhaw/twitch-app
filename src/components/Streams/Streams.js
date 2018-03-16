@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import CircularProgress from 'material-ui/CircularProgress';
 
 import Header from './Header';
-import FrenchStreams from './FrenchStreams';
 
 import { connect } from 'react-redux';
 import { fetchGames } from '../../redux/actions/fetchGames';
@@ -18,7 +17,8 @@ class Streams extends Component {
       // store the game ID from the react router params (/streams/gameID) to make dynamic fetching with this ID    
       gameId: this.props.match.params.gameId,
       // number of streams to fetch every time
-      numberToFetch: 20
+      numberToFetch: 20,
+      language: ''
     }
   }
 
@@ -34,13 +34,34 @@ class Streams extends Component {
 
   fetchInitData = () => {
     // fetch the first 20 streams
-    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}`);
+    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}&language=${this.state.language}`);
   }
 
   fetchMoreData = () => {
     // when the page is fully scrolled down, fetch 20 new streams
     this.setState({ numberToFetch: this.state.numberToFetch + 20 })
-    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}`)
+    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?game_id=${this.state.gameId}&first=${this.state.numberToFetch}&language=${this.state.language}`)
+  }
+
+  changeToAll = async () => {
+    await this.setState({
+      language: ""
+    })
+    this.fetchInitData();
+  }
+
+  changeToFr = async () => {
+    await this.setState({
+      language: "fr"
+    })
+    this.fetchInitData();
+  }
+
+  changeToEn = async () => {
+    await this.setState({
+      language: "en"
+    })
+    this.fetchInitData();
   }
 
   handleOnScroll = () => {
@@ -57,7 +78,7 @@ class Streams extends Component {
   }
 
   render() {
-
+    console.log(this.state);
     // streams array
     const streams = this.props.streams.streams.data;
     let gameId = this.props.match.params.gameId;
@@ -79,8 +100,12 @@ class Streams extends Component {
           {this.props.streams.fetched &&
             <div className="streamsFirstContainer">
               <Header gameId={gameId} />
-              
-              <FrenchStreams streams={streams} gameId={gameId}/>
+
+              <ul>
+                <li onClick={this.changeToAll}>Tout</li>
+                <li onClick={this.changeToFr}>Français</li>
+                <li onClick={this.changeToEn}>Anglais</li>
+              </ul>
 
               <div className="streamsSecondContainer">
                 {streams.map((stream, index) => {

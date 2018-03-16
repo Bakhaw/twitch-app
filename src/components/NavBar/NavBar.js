@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Home from '../Home/Home';
 import LeftMenu from '../LeftMenu/LeftMenu';
 import TopGames from '../TopGames/TopGames';
-import Streams from '../Streams/Streams';
+import DisplayStreams from '../Streams/DisplayStreams';
 import LiveStream from '../LiveStream/LiveStream';
 import Video from '../ChannelVideos/Video';
 import ChannelVideos from '../ChannelVideos/ChannelVideos';
@@ -47,7 +47,7 @@ class NavBar extends Component {
 
           <Switch>
             <Route path="/directory" component={TopGames} />
-            <Route path="/streams/:gameId" component={Streams} />
+            <Route path="/streams/:gameId" component={DisplayStreams} />
             <Route path="/:gameId/:streamer/videos/:videoId" component={Video} />
             <Route path="/:gameId/:streamer/videos" component={ChannelVideos} />
             <Route path="/live/:gameId/:streamer" component={LiveStream} />
