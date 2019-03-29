@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
-import ChannelHeader from "../LiveStream/ChannelHeader";
-import StreamInfosBar from "../LiveStream/StreamInfosBar";
+import ChannelHeader from '../LiveStream/ChannelHeader';
+import StreamInfosBar from '../LiveStream/StreamInfosBar';
 
-import { connect } from "react-redux";
-import { fetchGames } from "../../redux/actions/fetchGames";
-import { fetchUser } from "../../redux/actions/fetchUser";
-import { fetchVideo } from "../../redux/actions/fetchVideo";
+import { connect } from 'react-redux';
+import { fetchGames } from '../../redux/actions/fetchGames';
+import { fetchUser } from '../../redux/actions/fetchUser';
+import { fetchVideo } from '../../redux/actions/fetchVideo';
 
 class Video extends Component {
   state = {
@@ -17,34 +17,35 @@ class Video extends Component {
     videoId: this.props.match.params.videoId
   };
 
-  componentWillMount() {
-    this.props.fetchGames(`https://api.twitch.tv/helix/games?id=${this.state.gameId}`);
-    this.props.fetchUser(`https://api.twitch.tv/helix/users?login=${this.state.streamer}`);
-    this.props.fetchVideo(`https://api.twitch.tv/helix/videos?id=${this.state.videoId}`);
+  componentDidMount() {
+    const { fetchGames, fetchUser, fetchVideo } = this.props;
+    const { gameId, streamer, videoId } = this.state;
+    fetchGames(`https://api.twitch.tv/helix/games?id=${gameId}`);
+    fetchUser(`https://api.twitch.tv/helix/users?login=${streamer}`);
+    fetchVideo(`https://api.twitch.tv/helix/videos?id=${videoId}`);
   }
 
   render() {
+    const { match, user, userFollows, video } = this.props;
+    const { streamer, videoId } = match.params;
 
-    const gameId = this.props.match.params.gameId;
-    const videoId = this.props.match.params.videoId;
     const videoUrl = `https://player.twitch.tv/?video=${videoId}`;
+    const chatUrl = `https://twitch.tv/embed/${streamer}/chat`;
 
-    const streamer = this.props.match.params.streamer;
-    const chatUrl = `https://twitch.tv/${streamer}/chat`;
-
-    const { game, user, userFollows, video } = this.props;
+    /* before user is fetched */
+    if (!user.fetched)
+      return (
+        <div className='rightContent'>
+          <div className='loading'>
+            <CircularProgress size={20} color='black' />
+          </div>
+        </div>
+      );
 
     return (
-      <div className="rightContent">
-
-      {/* before user is fetched */}
-        {!user.fetched &&
-          <div className="loading">
-            <CircularProgress size={20} color="black" />
-          </div>
-        }
-        <div className="liveStreamContainer">
-          <div className="videoContainer">
+      <div className='rightContent'>
+        <div className='liveStreamContainer'>
+          <div className='videoContainer'>
             {user.fetched && video.fetched && (
               <div>
                 <ChannelHeader
@@ -54,20 +55,17 @@ class Video extends Component {
                   userImage={user.user.data[0].profile_image_url}
                   followers={userFollows}
                 />
-                <div className="videoPlayer">
-                  <iframe src={videoUrl} frameBorder="0" />
+                <div className='videoPlayer'>
+                  <iframe src={videoUrl} frameBorder='0' />
                 </div>
 
-                <StreamInfosBar
-                  {...this.props}
-                  data={this.props.video.video.data}
-                />
+                <StreamInfosBar {...this.props} data={video.video.data} />
               </div>
             )}
           </div>
 
-          <div className="chat">
-            <iframe src={chatUrl} frameBorder="0" />
+          <div className='chat'>
+            <iframe src={chatUrl} frameBorder='0' />
           </div>
         </div>
       </div>
@@ -98,4 +96,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Video);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Video);

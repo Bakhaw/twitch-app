@@ -1,75 +1,64 @@
-import React, { Component } from "react";
-import { Link } from 'react-router-dom';
-
-import { connect } from "react-redux";
-import { fetchGames } from "../../redux/actions/fetchGames";
-import { fetchStreams } from "../../redux/actions/fetchStreams";
-import { fetchUser } from "../../redux/actions/fetchUser";
-import { fetchUserFollows } from "../../redux/actions/fetchUserFollows";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchGames } from '../../redux/actions/fetchGames';
+import { fetchStreams } from '../../redux/actions/fetchStreams';
+import { fetchUser } from '../../redux/actions/fetchUser';
 
 import ChannelHeader from './ChannelHeader';
-import StreamInfosBar from "./StreamInfosBar";
+import StreamInfosBar from './StreamInfosBar';
 
 class LiveStream extends Component {
-
-
   constructor(props) {
     super(props);
     this.state = {
-      // store the game ID from react router params (/live/gameId) to make dynamic fetching with this ID    
-      streamer: this.props.match.params.streamer,
-      gameId: this.props.match.params.gameId,
-    }
+      // store the game ID from react router params (/live/gameId) to make dynamic fetching with this ID
+      streamer: props.match.params.streamer,
+      gameId: props.match.params.gameId
+    };
   }
 
-  componentWillMount() {
-    this.props.fetchStreams(`https://api.twitch.tv/helix/streams?user_login=${this.state.streamer}`);
-    this.props.fetchGames(`https://api.twitch.tv/helix/games?id=${this.state.gameId}`);
-    this.props.fetchUser(`https://api.twitch.tv/helix/users?login=${this.state.streamer}`);
+  componentDidMount() {
+    const { fetchGames, fetchStreams, fetchUser } = this.props;
+    const { gameId, streamer } = this.state;
+    fetchStreams(`https://api.twitch.tv/helix/streams?user_login=${streamer}`);
+    fetchGames(`https://api.twitch.tv/helix/games?id=${gameId}`);
+    fetchUser(`https://api.twitch.tv/helix/users?login=${streamer}`);
   }
 
   render() {
-
-    let videoPlayerUrl = `https://twitch.tv/${this.state.streamer}/embed`;
-    let chatUrl = `https://twitch.tv/${this.state.streamer}/chat`;
-
     const { streams, user, game, userFollows } = this.props;
+    const { gameId, streamer } = this.state;
 
+    let videoPlayerUrl = `https://player.twitch.tv/?channel=${streamer}`;
+    let chatUrl = `https://twitch.tv/embed/${streamer}/chat`;
 
     return (
-      <div className="rightContent">
-        <div className="liveStreamContainer">
-
+      <div className='rightContent'>
+        <div className='liveStreamContainer'>
           {/* Video Player */}
-          <div className="videoContainer">
-
-            {streams.fetched && user.fetched && game.fetched &&
+          <div className='videoContainer'>
+            {streams.fetched && user.fetched && game.fetched && (
               <div>
+                <ChannelHeader
+                  gameId={gameId}
+                  userLogin={user.user.data[0].login}
+                  userName={user.user.data[0].display_name}
+                  userImage={user.user.data[0].profile_image_url}
+                  followers={userFollows}
+                />
 
-                <ChannelHeader gameId={this.state.gameId}
-                               userLogin={user.user.data[0].login}
-                               userName={user.user.data[0].display_name}
-                               userImage={user.user.data[0].profile_image_url}
-                               followers={userFollows}/>
-                
-                <div className="videoPlayer">
-                  <iframe
-                    allowFullScreen
-                    src={videoPlayerUrl}
-                  />
+                <div className='videoPlayer'>
+                  <iframe allowFullScreen src={videoPlayerUrl} />
                 </div>
-                <StreamInfosBar {...this.props} data={this.props.streams.streams.data}/>
-
+                <StreamInfosBar {...this.props} data={streams.streams.data} />
               </div>
-            }
-
+            )}
           </div>
 
           {/* Chat */}
-          <div className="chat" style={{ width: this.state.chatWidth, display: this.state.display }}>
+          <div className='chat'>
             <iframe src={chatUrl} />
           </div>
-
         </div>
       </div>
     );
@@ -99,4 +88,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LiveStream);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LiveStream);

@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js",
-    "start": "webpack-dev-server --open --hot"
+    "dev": "webpack-dev-server"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -22,9 +22,9 @@
     "express": "^4.16.2",
     "material-ui": "^0.20.0",
     "moment": "^2.20.1",
-    "node-sass": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",

@@ -1,15 +1,8 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import Streams from './Streams';
 
-class DisplayStreams extends Component {
-  render() {
-    return (
-      <div>
-        <Streams {...this.props} />
-      </div>
-    )
-  }
+function DisplayStreams(props) {
+  return <Streams {...props} />;
 }
 
 export default DisplayStreams;
